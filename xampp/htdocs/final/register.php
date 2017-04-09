@@ -15,7 +15,7 @@ and open the template in the editor.
     min-width: 250px;
     max-width: 250px;
     opacity:0.35;
-">Login now</h2>
+">Register now</h2>
        <form method="POST" style="
     background: transparent;
     margin: 0px;
@@ -31,20 +31,35 @@ and open the template in the editor.
     width: 200px;
     float: left;
 ">Email :</section>    <input name="Email" type="email" placeholder="Enter Email..."><br>
+         <section style="
+    width: 200px;
+    float: left;
+">First Name :</section>     <input name="FirstName" type="text" placeholder="Enter First Name..."><br>
+         <section style="
+    width: 200px;
+    float: left;
+">Last Name :</section>     <input name="LastName" type="text" placeholder="Enter Last Name..."><br>
 
   <section style="
     width: 200px;
     float: left;
 ">Password :</section>     <input name="Password" type="password" placeholder="Enter a password"><br>
-
-
-    
-             <input value="Login" type="submit" style="min-width: 100px;margin:20px;margin-top: 21px;margin-right: 5px;"/>    
-       
-             <br>     <small><i>Don't have an account?</i><a href="register.php" style="margin-left: -9px;">Create account</a></small><br>
-
-       </form>
-
+         <section style="
+    width: 200px;
+    float: left;
+">Mobile Number :</section>     <input name="CellPhone" type="tel" placeholder="Enter Mobile Number..."><br>
+        <section style="
+    width: 200px;
+    float: left;
+">Birthday :</section>      <input name="Birthday" type="date" placeholder="Enter your Birthday..."><br>
+            <section style="
+    width: 200px;
+    float: left;
+">Gender :</section><label for="g_m">Male</label>   <input id="g_m" name="G" value="M" type="radio">
+             <label for="g_f">Female</label>   <input id="g_f" name="G" value="F" type="radio">
+             <br><br>
+             <input value="Register" type="submit" style="min-width: 100px;margin:20px;margin-top: 21px;margin-right: 5px;"/>    
+        </form>
     <h4 style="opacity:0.3;text-align: right" ><i>All fields are mandatory</i></h4>
 </div>
 </div>
