@@ -59,11 +59,13 @@ and open the template in the editor.
         <li style="
     border: 1px solid rgba(255, 165, 0, 0.25);
     border-left: 11px solid #63efe1;
-    margin-bottom: 21px;
-    ">
+    margin-bottom: 21px; cursor: pointer;
+    " >
             <h2>Item 1</h2>
             <section>Desc</section> 
             <section>Due on :<b>7:30 pm 13th april 2017</b></section>
+            <span style="font-size: x-large;float: right;margin-top: -49px;border: 1px solid rgba(51, 51, 51, 0.25);border-radius: 50%;min-width: 27px;padding: 4px;text-align: center;cursor: pointer;">&#128465;</span>
+
         </li>
         
         
@@ -73,10 +75,13 @@ and open the template in the editor.
     border: 1px solid rgba(255, 165, 0, 0.25);
     border-left: 11px solid #63efe1;
     margin-bottom: 21px;
+    cursor: pointer;
     ">
             <h2>Item 1</h2>
             <section>Desc</section> 
             <section>Due on :<b>7:30 pm 13th april 2017</b></section>
+                       
+<span style="font-size: x-large;float: right;margin-top: -49px;border: 1px solid rgba(51, 51, 51, 0.25);border-radius: 50%;min-width: 27px;padding: 4px;text-align: center;cursor: pointer;">&#128465;</span>
         </li>
         
         

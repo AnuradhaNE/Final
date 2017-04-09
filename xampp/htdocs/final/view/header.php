@@ -91,6 +91,7 @@ form input,form select {
     /* float: right; */
     margin-top: 23px;
     outline: none;
+    min-width: 150px;
 }
 form>section ,form label{
     color:white;

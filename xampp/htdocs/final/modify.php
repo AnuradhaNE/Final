@@ -9,13 +9,13 @@ and open the template in the editor.
         // put your code here
         ?>
 <div style="min-height: 90px;overflow: hidden;text-align: center">
-<div style="min-height: 90px;border-radius: 15px;overflow: hidden;cursor: pointer;/* float: left; */display: inline-block;padding: 5px;background: rgba(249, 101, 101, 0.84);margin: 0;transition: all 0.2s ease;display: inline-block;/* clear: both; */">
+<div style="min-height: 90px;border-radius: 15px;overflow: hidden;/* float: left; */display: inline-block;padding: 5px;background: #7eeae0;margin: 0;transition: all 0.2s ease;display: inline-block;/* clear: both; */">
         <h2 style="
     width: 60%;
     min-width: 250px;
     max-width: 250px;
     opacity:0.35;
-">Login now</h2>
+">Add Task</h2>
        <form method="POST" style="
     background: transparent;
     margin: 0px;
@@ -30,18 +30,31 @@ and open the template in the editor.
     color: white;
     width: 200px;
     float: left;
-">Email :</section>    <input name="Email" type="email" placeholder="Enter Email..."><br>
+">Title</section>    <input name="Title" type="text" placeholder="Enter Task Title..."><br>
 
   <section style="
+    color: white;
     width: 200px;
     float: left;
-">Password :</section>     <input name="Password" type="password" placeholder="Enter a password"><br>
+">Description</section>    <input name="Description" type="text" placeholder="Enter Description..."><br>
 
 
-    
-             <input value="Login" type="submit" style="min-width: 100px;margin:20px;margin-top: 21px;margin-right: 5px;"/>    
+
+<section style="
+    color: white;
+    width: 200px;
+    float: left;
+">Due Date</section>    <input name="DD" type="date" placeholder="Enter Description..."><br>
+    <section style="
+    color: white;
+    width: 200px;
+    float: left;
+">Due time</section>    <input name="Dtime" type="time" placeholder="Enter Description..."><br>
+         
+
+    <input value="Add Task" type="submit" style="background:mediumaquamarine;cursor: pointer;min-width: 100px;margin:20px;margin-top: 21px;margin-right: 5px;"/>    
        
-             <br>     <small><i>Don't have an account?</i><a href="register.php" style="margin-left: -9px;">Create account</a></small><br>
+             <br>   <br>
 
        </form>
 
