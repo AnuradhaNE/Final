@@ -7,6 +7,11 @@ and open the template in the editor.
 <?php include 'view/header.php'; ?>
         <?php
         // put your code here
+        $msg="Add Task";
+        if(isset($_REQUEST['m'])){
+                    $msg="Edit Task";
+
+        }
         ?>
 <div style="min-height: 90px;overflow: hidden;text-align: center">
 <div style="min-height: 90px;border-radius: 15px;overflow: hidden;/* float: left; */display: inline-block;padding: 5px;background: #7eeae0;margin: 0;transition: all 0.2s ease;display: inline-block;/* clear: both; */">
@@ -15,7 +20,7 @@ and open the template in the editor.
     min-width: 250px;
     max-width: 250px;
     opacity:0.35;
-">Add Task</h2>
+"><?php echo $msg; ?></h2>
        <form method="POST" style="
     background: transparent;
     margin: 0px;

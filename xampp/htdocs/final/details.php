@@ -36,14 +36,14 @@ and open the template in the editor.
 <br>
 <!--  <link href="https://fonts.googleapis.com/css?family=Gudea" rel="stylesheet">-->
 
-<div  onclick="window.location.href='modify.php'" style="min-height: 90px;border-bottom-right-radius: 15px;border-top-right-radius: 15px;overflow: hidden;float:left;display: inline-block;padding: 5px;background: rgba(38, 220, 203, 0.84);margin: 0;cursor: pointer;transition: all 0.2s ease;display: inline-block;/* clear: both; */margin-top: 30px;">
+<div  onclick="window.location.href='main.php'" style="min-height: 90px;border-bottom-right-radius: 15px;border-top-right-radius: 15px;overflow: hidden;float:left;display: inline-block;padding: 5px;background: rgba(38, 220, 203, 0.84);margin: 0;cursor: pointer;transition: all 0.2s ease;display: inline-block;/* clear: both; */margin-top: 30px;">
         <h2 style="
     width: 60%;
     min-width: 250px;
     max-width: 250px;
         opacity:0.35;
 
-">Add a task</h2>
+">Go Back</h2>
        
 </div>
 
@@ -60,29 +60,12 @@ and open the template in the editor.
     border: 1px solid rgba(255, 165, 0, 0.25);
     border-left: 11px solid #63efe1;
     margin-bottom: 21px; 
+    min-height: 300px;
     " >
-            <h2 style="cursor: pointer;" onclick="window.location.href='details.php'" >Item 1</h2>
-            
-            <section>Due in 7 days</section>
-   
-
-        </li>
-        
-        
-        
-        
-        <li style="
-    border: 1px solid rgba(255, 165, 0, 0.25);
-    border-left: 11px solid #63efe1;
-    margin-bottom: 21px;
-    cursor: pointer;
-    ">
-            <h2>Item 1</h2>
+            <h2 style="cursor: pointer;" onclick="window.location.href='modify.php?m=modify'" >Item 1</h2>
             <section>Desc</section> 
             <section>Due on :<b>7:30 pm 13th april 2017</b></section>
-                       
-<span style="
-      font-size: xx-large;
+            <span style="font-size: xx-large;
     float: right;
     margin-top: -49px;
     border: 1px solid rgba(51, 51, 51, 0.13);
@@ -93,11 +76,14 @@ and open the template in the editor.
     cursor: pointer;
     height: 30px;
     line-height: 1;
-    color: rgba(132, 132, 132, 0.91);;">&#128465;</span>
+    color: rgba(132, 132, 132, 0.91);">&#128465;</span>
+
         </li>
         
         
         
+        
+      
         
         
         

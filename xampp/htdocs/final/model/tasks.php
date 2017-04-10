@@ -20,11 +20,24 @@ function deleteATask($email,$task_t)
  return ;
 }
 
-function editTask($email,$upt,$task_t,$task_desc,$task_date,$task_time,$task_stat){
-    
+function editTask($email,$old_t,$task_t,$task_desc,$task_date,$task_time,$task_stat){
+    global $db;
+    $q="UPDATE `adn24`.`to_do_tasks` SET `task_title`='$task_t',`task_desc`='$task_desc',`task-date`='$task_date',`task-time`='$task_time',`status`='$task_stat' WHERE `email`='$email' AND `task_title`='$old_t'
+;";
+      $statement = $db->prepare($q);
+ $statement->execute();
+ $statement->closeCursor();
+ echo 'done'.$q;
+ return ;
 }
-function changestat($email,$upt,$task_t,$task_desc,$task_date,$task_time,$task_stat){
-    
+function changestat($email,$task_t,$task_stat){
+    //can be one of ongoing,done,deleted
+    global $db;
+    $q="UPDATE `adn24`.`to_do_tasks` SET `status` = '$task_stat' WHERE `to_do_tasks`.`task_title` = '$task_t' AND `to_do_tasks`.`email` = '$email'";
+      $statement = $db->prepare($q);
+ $statement->execute();
+ $statement->closeCursor();
+ return;
 }
 
 function  getTasksFor($email)
