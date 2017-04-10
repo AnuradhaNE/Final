@@ -9,6 +9,24 @@ require('database.php');
 /***Author :Anu*/
 
 /* File to deal with the tasks of this app*/
+
+function deleteATask($email,$task_t)
+{
+     global $db;
+    $q="DELETE FROM `adn24`.`to_do_tasks` WHERE `to_do_tasks`.`task_title` = '$task_t' AND `to_do_tasks`.`email` = '$email'";
+    $statement = $db->prepare($q);
+ $statement->execute();
+ $statement->closeCursor();
+ return ;
+}
+
+function editTask($email,$upt,$task_t,$task_desc,$task_date,$task_time,$task_stat){
+    
+}
+function changestat($email,$upt,$task_t,$task_desc,$task_date,$task_time,$task_stat){
+    
+}
+
 function  getTasksFor($email)
 {
     
@@ -30,4 +48,6 @@ $statement = $db->prepare($q);
  $statement->closeCursor();
  return ;
 }
+
+
 ?>
