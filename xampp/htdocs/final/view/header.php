@@ -3,8 +3,7 @@
 <!-- the head section -->
 <head>
     <title>My Todo list</title>
-    <link rel="stylesheet" type="text/css"
-          href="/ex_starts/ch05_ex1/main.css">
+    
 <link href="https://fonts.googleapis.com/css?family=Sintony" rel="stylesheet"> 
  <style>
           * {font-family: 'Sintony', sans-serif;
@@ -91,7 +90,8 @@ form input,form select {
     /* float: right; */
     margin-top: 23px;
     outline: none;
-    min-width: 150px;
+    
+    min-width: 170px;
 }
 form>section ,form label{
     color:white;
@@ -116,6 +116,17 @@ a:hover {
   color: black;
     transition: 0.2s;
 }
+
+#reg input[type="text"],#reg input[type="radio"], #reg select {
+    border: 5px double #9c7f7f;
+    /* text-align: right; */
+    /* float: right; */
+    margin-top: 23px;
+    outline: none;
+min-width: 30px;}
+    
+    
+
           </style>
 </head>
 

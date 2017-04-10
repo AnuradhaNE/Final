@@ -36,7 +36,7 @@ and open the template in the editor.
 <br>
 <!--  <link href="https://fonts.googleapis.com/css?family=Gudea" rel="stylesheet">-->
 
-<div style="min-height: 90px;border-bottom-right-radius: 15px;border-top-right-radius: 15px;overflow: hidden;float:left;display: inline-block;padding: 5px;background: rgba(38, 220, 203, 0.84);margin: 0;cursor: pointer;transition: all 0.2s ease;display: inline-block;/* clear: both; */margin-top: 30px;">
+<div  onclick="window.location.href='modify.php'" style="min-height: 90px;border-bottom-right-radius: 15px;border-top-right-radius: 15px;overflow: hidden;float:left;display: inline-block;padding: 5px;background: rgba(38, 220, 203, 0.84);margin: 0;cursor: pointer;transition: all 0.2s ease;display: inline-block;/* clear: both; */margin-top: 30px;">
         <h2 style="
     width: 60%;
     min-width: 250px;
@@ -64,7 +64,18 @@ and open the template in the editor.
             <h2>Item 1</h2>
             <section>Desc</section> 
             <section>Due on :<b>7:30 pm 13th april 2017</b></section>
-            <span style="font-size: x-large;float: right;margin-top: -49px;border: 1px solid rgba(51, 51, 51, 0.25);border-radius: 50%;min-width: 27px;padding: 4px;text-align: center;cursor: pointer;">&#128465;</span>
+            <span style="font-size: xx-large;
+    float: right;
+    margin-top: -49px;
+    border: 1px solid rgba(51, 51, 51, 0.13);
+    border-radius: 50%;
+    min-width: 27px;
+    padding: 4px;
+    text-align: center;
+    cursor: pointer;
+    height: 30px;
+    line-height: 1;
+    color: rgba(132, 132, 132, 0.91);">&#128465;</span>
 
         </li>
         
@@ -81,7 +92,19 @@ and open the template in the editor.
             <section>Desc</section> 
             <section>Due on :<b>7:30 pm 13th april 2017</b></section>
                        
-<span style="font-size: x-large;float: right;margin-top: -49px;border: 1px solid rgba(51, 51, 51, 0.25);border-radius: 50%;min-width: 27px;padding: 4px;text-align: center;cursor: pointer;">&#128465;</span>
+<span style="
+      font-size: xx-large;
+    float: right;
+    margin-top: -49px;
+    border: 1px solid rgba(51, 51, 51, 0.13);
+    border-radius: 50%;
+    min-width: 27px;
+    padding: 4px;
+    text-align: center;
+    cursor: pointer;
+    height: 30px;
+    line-height: 1;
+    color: rgba(132, 132, 132, 0.91);;">&#128465;</span>
         </li>
         
         

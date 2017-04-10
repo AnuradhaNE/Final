@@ -27,28 +27,32 @@ and open the template in the editor.
     
 ">
             <section style="
-    color: white;
+        color: white;
     width: 200px;
     float: left;
+    padding-top: 20px;
 ">Title</section>    <input name="Title" type="text" placeholder="Enter Task Title..."><br>
 
   <section style="
-    color: white;
+        color: white;
     width: 200px;
     float: left;
+    padding-top: 20px;
 ">Description</section>    <input name="Description" type="text" placeholder="Enter Description..."><br>
 
 
 
 <section style="
-    color: white;
+       color: white;
     width: 200px;
     float: left;
+    padding-top: 20px;
 ">Due Date</section>    <input name="DD" type="date" placeholder="Enter Description..."><br>
     <section style="
-    color: white;
+     color: white;
     width: 200px;
     float: left;
+    padding-top: 20px;
 ">Due time</section>    <input name="Dtime" type="time" placeholder="Enter Description..."><br>
          
 

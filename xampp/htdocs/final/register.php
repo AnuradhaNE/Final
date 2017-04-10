@@ -8,15 +8,17 @@ and open the template in the editor.
         <?php
         // put your code here
         ?>
+
+
 <div style="min-height: 90px;overflow: hidden;text-align: center">
-<div style="min-height: 90px;border-radius: 15px;overflow: hidden;cursor: pointer;/* float: left; */display: inline-block;padding: 5px;background: rgba(249, 101, 101, 0.84);margin: 0;transition: all 0.2s ease;display: inline-block;/* clear: both; */">
+<div style="min-height: 90px;border-radius: 15px;overflow: hidden;/* float: left; */display: inline-block;padding: 5px;background: rgba(249, 101, 101, 0.84);margin: 0;transition: all 0.2s ease;display: inline-block;/* clear: both; */">
         <h2 style="
     width: 60%;
     min-width: 250px;
     max-width: 250px;
     opacity:0.35;
 ">Register now</h2>
-       <form method="POST" style="
+       <form id="reg" method="POST" style="
     background: transparent;
     margin: 0px;
     color: white;
@@ -58,7 +60,7 @@ and open the template in the editor.
 ">Gender :</section><label for="g_m">Male</label>   <input id="g_m" name="G" value="M" type="radio">
              <label for="g_f">Female</label>   <input id="g_f" name="G" value="F" type="radio">
              <br><br>
-             <input value="Register" type="submit" style="min-width: 100px;margin:20px;margin-top: 21px;margin-right: 5px;"/>    
+             <input value="Register" type="submit" style="cursor: pointer;min-width: 100px;margin:20px;margin-top: 21px;margin-right: 5px;"/>    
         </form>
     <h4 style="opacity:0.3;text-align: right" ><i>All fields are mandatory</i></h4>
 </div>
