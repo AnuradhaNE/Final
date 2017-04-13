@@ -9,7 +9,7 @@ and open the template in the editor.
         // put your code here
         ?>
 <div style="min-height: 90px;overflow: hidden;text-align: center">
-<div style="min-height: 90px;border-radius: 15px;overflow: hidden;cursor: pointer;/* float: left; */display: inline-block;padding: 5px;background: rgba(249, 101, 101, 0.84);margin: 0;transition: all 0.2s ease;display: inline-block;/* clear: both; */">
+<div style="min-height: 90px;border-radius: 15px;overflow: hidden;/* float: left; */display: inline-block;padding: 5px;background: rgba(249, 101, 101, 0.84);margin: 0;transition: all 0.2s ease;display: inline-block;/* clear: both; */">
         <h2 style="
     width: 60%;
     min-width: 250px;
@@ -39,7 +39,7 @@ and open the template in the editor.
 
 
     
-             <input value="Login" type="submit" style="min-width: 100px;margin:20px;margin-top: 21px;margin-right: 5px;"/>    
+             <input value="Login" type="submit" style="cursor: pointer;min-width: 100px;margin:20px;margin-top: 21px;margin-right: 5px;"/>    
        
              <br>     <small><i>Don't have an account?</i><a href="register.php" style="margin-left: -9px;">Create account</a></small><br>
 

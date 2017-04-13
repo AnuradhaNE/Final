@@ -61,7 +61,7 @@ and open the template in the editor.
 ">Due time</section>    <input name="Dtime" type="time" placeholder="Enter Description..."><br>
          
 
-    <input value="Add Task" type="submit" style="background:mediumaquamarine;cursor: pointer;min-width: 100px;margin:20px;margin-top: 21px;margin-right: 5px;"/>    
+    <input value="Done" type="submit" style="background:mediumaquamarine;cursor: pointer;min-width: 100px;margin:20px;margin-top: 21px;margin-right: 5px;"/>    
        
              <br>   <br>
 
