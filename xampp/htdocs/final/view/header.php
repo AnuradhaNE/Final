@@ -5,6 +5,7 @@
     <title>My Todo list</title>
     
 <link href="https://fonts.googleapis.com/css?family=Sintony" rel="stylesheet"> 
+
  <style>
           * {font-family: 'Sintony', sans-serif;
 padding: 9px;

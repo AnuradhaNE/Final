@@ -46,8 +46,7 @@ and open the template in the editor.
 ">Add a task</h2>
        
 </div>
-
-<div id="tasks" style="min-height: 450px;overflow: hidden;float: left;width: 60%;min-width: 390px;border: 2px solid rgba(128, 128, 128, 0.13);max-width: 550px;margin-left: 6%;margin-top: -70px;">
+<div id="tasks" style="min-height: 450px;overflow: hidden;/* float: left; */width: 60%;min-width: 390px;border: 2px solid rgba(128, 128, 128, 0.08);max-width: 550px;margin-left: 30%;margin-top: -70px;">
 
     <ul>
        
@@ -60,8 +59,8 @@ and open the template in the editor.
     border: 1px solid rgba(255, 165, 0, 0.25);
     border-left: 11px solid #63efe1;
     margin-bottom: 21px; 
-    " >
-            <h2 style="cursor: pointer;" onclick="window.location.href='details.php'" >Item 1</h2>
+    ">
+            <h2 style="cursor: pointer;" onclick="window.location.href='details.php'">Item 1</h2>
             
             <section>Due in 7 days</section>
    
@@ -71,34 +70,23 @@ and open the template in the editor.
         
         
         
+            
         <li style="
     border: 1px solid rgba(255, 165, 0, 0.25);
-    border-left: 11px solid #63efe1;
+    border-left: 11px solid #fa7d7c;
     margin-bottom: 21px;
-    cursor: pointer;
     ">
-            <h2>Item 1</h2>
-            <section>Desc</section> 
-            <section>Due on :<b>7:30 pm 13th april 2017</b></section>
-                       
-<span style="
-      font-size: xx-large;
-    float: right;
-    margin-top: -49px;
-    border: 1px solid rgba(51, 51, 51, 0.13);
-    border-radius: 50%;
-    min-width: 27px;
-    padding: 4px;
-    text-align: center;
-    cursor: pointer;
-    height: 30px;
-    line-height: 1;
-    color: rgba(132, 132, 132, 0.91);;">&#128465;</span>
+            <h2 style="cursor: pointer;" onclick="window.location.href='details.php'">Item 2</h2>
+            
+            <section>Due in 3 days</section>
+   
+
         </li>
         
         
         
         
+       
         
         
         
@@ -106,6 +94,95 @@ and open the template in the editor.
         
         
         
+ <li style="
+    border: 1px solid rgba(255, 165, 0, 0.25);
+    border-left: 11px solid #63efe1;
+    margin-bottom: 21px;
+    min-height: 120px;
+    ">
+
+    
+     
+     
+     <section style="
+    color: #f3893c;
+    border-bottom: 1px solid;
+    position: absolute;
+    /* opacity: 0; */
+    margin-top: -9px;
+     display: none; 
+    border-left: 1px solid;
+    margin-left: 186px;
+    ">Are you sure? <a class="yn" href="delete">Yes</a> <a class="yn" style="
+    cursor: pointer;
+">No</a></section>
+     
+     
+     
+            <h2 style="cursor: pointer;/* margin-top: 50px; */margin-bottom: 0px;" onclick="window.location.href='modify.php?m=modify'">Item 1</h2>
+             
+            
+           <section style="
+    margin: 3;
+    padding: 0;
+    padding-left: 9px;
+    font-size: medium;
+    color: rgba(62, 62, 62, 0.79);
+    /* font-style: italic; */
+    margin-top: 0px;
+    margin-bottom: 13px;
+">This is item 1</section><span style="
+    font-size: x-large;
+    float: right;
+    margin-top: -49px;
+    border: 1px solid rgba(51, 51, 51, 0.13);
+    border-radius: 50%;
+    min-width: 22px;
+    padding: 4px;
+    text-align: center;
+    cursor: pointer;
+    height: 25px;
+    line-height: 1;
+    color: rgba(132, 132, 132, 0.91);
+    /* position: absolute; */
+    margin-top: 8px;
+    ">🗑</span>
+            <span onclick="location.href='modify.php?m=modify'" style="
+    font-size: large;
+    float: right;
+    margin-top: -49px;
+    border: 1px solid rgba(51, 51, 51, 0.13);
+    border-radius: 50%;
+    min-width: 22px;
+    padding: 4px;
+    text-align: center;
+    cursor: pointer;
+    height: 25px;
+    line-height: 1.4;
+    color: rgba(132, 132, 132, 0.91);
+    /* position: absolute; */
+    margin-top: 8px;
+    margin-right: 20px;
+    ">🖊</span>
+        <span onclick="" style="
+    font-size: x-large;
+    float: right;
+    margin-top: -49px;
+    border: 1px solid rgba(51, 51, 51, 0.13);
+    border-radius: 50%;
+    min-width: 22px;
+    padding: 4px;
+    text-align: center;
+    cursor: pointer;
+    height: 22px;
+    line-height: 1.1;
+    color: rgba(132, 132, 132, 0.91);
+    /* position: absolute; */
+    margin-top: 9px;
+    margin-right: 20px;
+    ">🗸</span><section style="
+    /* font-size: large; */
+">Due in 3 days</section></li>
         
         
         
