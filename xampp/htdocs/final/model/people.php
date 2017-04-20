@@ -15,7 +15,7 @@ $statement = $db->prepare($q);
 }
 function validate($email,$pword) {
    global $db;
-   $q="SELECT `first_n` FROM `adn24`.`to_do_members` where email='$email' and pword='$pword'";
+   $q="SELECT `first_n`,`last_n` FROM `adn24`.`to_do_members` where email='$email' and pword='$pword'";
           
 $statement = $db->prepare($q);
  $statement->execute();
@@ -23,9 +23,11 @@ $statement = $db->prepare($q);
 //   print_r(count($statement->fetchAll()));
 
     $statement->closeCursor();    
-    $f_name = $category['first_n'];
+    $f_name = $category['first_n']." ". $category['last_n'];
+        ;
+
 //    echo $f_name.'<br>';
-    echo '';
+//    echo '';
     return $f_name;
 }
 
@@ -41,7 +43,7 @@ $statement = $db->prepare($q);
     $statement->closeCursor();    
     $f_name = $category['email'];
 //    echo $f_name.'<br>';
-    echo ''.count($statement->fetchAll()).$f_name;
+//    echo ''.count($statement->fetchAll()).$f_name;
     return $f_name;
 }
 //register('ggj@@');

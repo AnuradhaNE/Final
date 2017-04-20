@@ -68,17 +68,18 @@ session_unset();
         ;   
         
         if(isset($_POST['Email'])&&isset($_POST['Password'])){
-          
+          if($_POST['Email']!=''&&$_POST['Password']!=''){
             require ('model/people.php');
             $f= validate($_POST['Email'],$_POST['Password']);
-           if ($f!='')
+           if ($f!=''&&preg_match("/[a-z]/i", $f))
            { 
     ?>
 
 <?php 
+//echo $f.' is name';
          $_SESSION["name"] = $f;
           $_SESSION["email"] = $_POST['Email'];
-     echo '<script>window.location.href = "main.php";</script>'; 
+    // echo '<script>window.location.href = "main.php";</script>'; 
            exit;
 
            }
@@ -101,7 +102,7 @@ session_unset();
            
            }
            }
-
+          }
         }
         ?>
 <!--  <link href="https://fonts.googleapis.com/css?family=Gudea" rel="stylesheet">-->
