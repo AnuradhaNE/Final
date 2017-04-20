@@ -4,16 +4,20 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php
+require 'model/tasks.php';
+session_start();
+$email=     $_SESSION["email"] ;
+?>
 <?php include 'view/header.php'; ?>
         <?php
         // put your code here
         $msg="Add Task";
         $tomodify=0;
-        $url ="modify.php?m=0";
+        $url ="modify.php";
         if(isset($_REQUEST['m'])){
             $tomodify=1;
                     $msg="Edit Task";
-                    $url="modify.php?m=1";
         }
         ?>
 <div style="min-height: 90px;overflow: hidden;text-align: center">
@@ -24,7 +28,7 @@ and open the template in the editor.
     max-width: 250px;
     opacity:0.35;
 "><?php echo $msg; ?></h2>
-       <form method=""  action="<?php echo $url ?>" style="
+       <form method="POST"  action="<?php echo $url ?>" style="
     background: transparent;
     margin: 0px;
     color: white;
@@ -94,7 +98,21 @@ document.getElementById("Time").setAttribute("min", now);
              <br>   <br>
 
        </form>
+<?php 
+if(isset($_POST['Modify']))
+{
+    if($_POST['Modify']==1){}
+    else{ 
+        
+    putaTask($_POST["Title"],$_POST["Description"], $email, $_POST["DD"],$_POST["Dtime"],'ongoing');
+      
+         echo '<script>window.location.href = "main.php";</script>'; 
 
+    }
+    
+};
+
+?>
     <h4 style="opacity:0.3;text-align: right" ><i id="msg">All fields are mandatory</i></h4>
 </div>
 </div>
