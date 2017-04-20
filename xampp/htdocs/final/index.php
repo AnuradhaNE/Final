@@ -79,7 +79,7 @@ session_unset();
 //echo $f.' is name';
          $_SESSION["name"] = $f;
           $_SESSION["email"] = $_POST['Email'];
-    // echo '<script>window.location.href = "main.php";</script>'; 
+     echo '<script>window.location.href = "main.php";</script>'; 
            exit;
 
            }

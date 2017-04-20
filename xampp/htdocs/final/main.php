@@ -76,15 +76,15 @@ and open the template in the editor.
      
      
      <section style="
-    color: #f3893c;
+       color: rgb(243, 137, 60);
     border-bottom: 1px solid;
-    position: absolute;
-    /* opacity: 0; */
+    /* position: absolute; */
     margin-top: -9px;
-     display: none; 
     border-left: 1px solid;
-    margin-left: 186px;
-    ">Are you sure? <a class="yn" href="delete">Yes</a> <a class="yn" style="
+    margin-left: 187px;
+    margin-right: -9px;
+    display: none;
+    " class="confirm">Are you sure? <a class="yn" href="delete">Yes</a> <a class="yn no" style="
     cursor: pointer;
 ">No</a></section>
      
@@ -117,7 +117,7 @@ and open the template in the editor.
     color: rgba(132, 132, 132, 0.91);
     /* position: absolute; */
     margin-top: 8px;
-    ">🗑</span>
+    " class="del">🗑</span>
             <span onclick="location.href='modify.php?m=modify'" style="
     font-size: large;
     float: right;
@@ -174,15 +174,15 @@ and open the template in the editor.
      
      
      <section style="
-    color: #f3893c;
+       color: rgb(243, 137, 60);
     border-bottom: 1px solid;
-    position: absolute;
-    /* opacity: 0; */
+    /* position: absolute; */
     margin-top: -9px;
-     display: none; 
     border-left: 1px solid;
-    margin-left: 186px;
-    ">Are you sure? <a class="yn" href="delete">Yes</a> <a class="yn" style="
+    margin-left: 187px;
+    margin-right: -9px;
+   display: none;
+    " class="confirm">Are you sure? <a class="yn" href="delete">Yes</a> <a class="yn no" style="
     cursor: pointer;
 ">No</a></section>
      
@@ -215,7 +215,7 @@ and open the template in the editor.
     color: rgba(132, 132, 132, 0.91);
     /* position: absolute; */
     margin-top: 8px;
-    ">🗑</span>
+    " class="del">🗑</span>
             <span onclick="location.href='modify.php?m=modify'" style="
     font-size: large;
     float: right;
@@ -274,15 +274,15 @@ and open the template in the editor.
      
      
      <section style="
-    color: #f3893c;
+      color: rgb(243, 137, 60);
     border-bottom: 1px solid;
-    position: absolute;
-    /* opacity: 0; */
+    /* position: absolute; */
     margin-top: -9px;
-     display: none; 
     border-left: 1px solid;
-    margin-left: 186px;
-    ">Are you sure? <a class="yn" href="delete">Yes</a> <a class="yn" style="
+    margin-left: 187px;
+    margin-right: -9px;
+    display: none;
+    " class="confirm">Are you sure? <a class="yn" href="delete">Yes</a> <a class="yn no" style="
     cursor: pointer;
 ">No</a></section>
      
@@ -315,7 +315,7 @@ and open the template in the editor.
     color: rgba(132, 132, 132, 0.91);
     /* position: absolute; */
     margin-top: 8px;
-    ">🗑</span>
+    " class="del">🗑</span>
             <span onclick="location.href='modify.php?m=modify'" style="
     font-size: large;
     float: right;
@@ -374,15 +374,15 @@ and open the template in the editor.
      
      
      <section style="
-    color: #f3893c;
+      color: rgb(243, 137, 60);
     border-bottom: 1px solid;
-    position: absolute;
-    /* opacity: 0; */
+    /* position: absolute; */
     margin-top: -9px;
-     display: none; 
     border-left: 1px solid;
-    margin-left: 186px;
-    ">Are you sure? <a class="yn" href="delete">Yes</a> <a class="yn" style="
+    margin-left: 187px;
+    margin-right: -9px;
+    display: none;
+    " class="confirm">Are you sure? <a class="yn" href="delete">Yes</a> <a class="yn no" style="
     cursor: pointer;
 ">No</a></section>
      
@@ -416,7 +416,7 @@ and open the template in the editor.
     color: rgba(132, 132, 132, 0.91);
     /* position: absolute; */
     margin-top: 8px;
-    ">🗑</span>
+    " class="del">🗑</span>
          
      <span onclick="" style="
     font-size: large;
@@ -460,16 +460,15 @@ and open the template in the editor.
      
      
      <section style="
-    color: #f3893c;
+     color: rgb(243, 137, 60);
     border-bottom: 1px solid;
-    position: absolute;
-    /* opacity: 0; */
+    /* position: absolute; */
     margin-top: -9px;
-     display: none; 
     border-left: 1px solid;
-    margin-left: 186px;
-    
-    ">Are you sure? <a class="yn" href="delete">Yes</a> <a class="yn" style="
+    margin-left: 187px;
+    margin-right: -9px;
+    display: none;
+    " class="confirm">Are you sure? <a class="yn" href="delete">Yes</a> <a class="yn no" style="
     cursor: pointer;
 ">No</a></section>
      
@@ -488,7 +487,8 @@ and open the template in the editor.
     margin-top: 0px;
     margin-bottom: 13px;
     text-decoration: line-through;
-">This is item 1</section><span style="
+">This is item 1</section>
+            <span class="del" style="
     font-size: x-large;
     float: right;
     margin-top: -49px;
@@ -503,7 +503,7 @@ and open the template in the editor.
     color: rgba(132, 132, 132, 0.91);
     /* position: absolute; */
     margin-top: 8px;
-    ">🗑</span>
+    " class="del">🗑</span>
           
      <span onclick="" style="
     font-size: large;
@@ -548,15 +548,15 @@ and open the template in the editor.
      
      
      <section style="
-    color: #f3893c;
+      color: rgb(243, 137, 60);
     border-bottom: 1px solid;
-    position: absolute;
-    /* opacity: 0; */
+    /* position: absolute; */
     margin-top: -9px;
-     display: none; 
     border-left: 1px solid;
-    margin-left: 186px;
-    ">Are you sure? <a class="yn" href="delete">Yes</a> <a class="yn" style="
+    margin-left: 187px;
+    margin-right: -9px;
+    display: none;
+    " class="confirm">Are you sure? <a class="yn" href="delete">Yes</a> <a  class="yn no" style="
     cursor: pointer;
 ">No</a></section>
      
@@ -590,7 +590,7 @@ and open the template in the editor.
     color: rgba(132, 132, 132, 0.91);
     /* position: absolute; */
     margin-top: 8px;
-    ">🗑</span>
+    " class="del">🗑</span>
           
        
     
@@ -622,5 +622,27 @@ and open the template in the editor.
         
     </section>    
 </div>
-
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script>
+  $(document).ready(function(){
+      
+     $(".del").click(function(){
+          console.log($(this).parent().children('.confirm'));
+           $(".del").parent().children('.confirm').fadeOut("fast");
+         $(".del").fadeIn("fast");
+          
+         $(this).parent().children('.confirm').fadeIn("fast");
+         $(this).fadeOut("fast");
+     });
+      
+      $(".yn.no").click(function(){
+          
+           $(this).parent().fadeOut("fast");
+            $(this).parent().parent().children('.del').fadeIn("fast");
+      });
+  });
+  </script>
 <?php include 'view/footer.php'; ?>
