@@ -20,12 +20,28 @@ function validate($email,$pword) {
 $statement = $db->prepare($q);
  $statement->execute();
    $category = $statement->fetch();
-   print_r(count($statement->fetchAll()));
+//   print_r(count($statement->fetchAll()));
 
     $statement->closeCursor();    
     $f_name = $category['first_n'];
-    echo $f_name;
-    echo 'is'.$f_name==='';
+//    echo $f_name.'<br>';
+    echo '';
+    return $f_name;
+}
+
+function userExists($email) {
+   global $db;
+   $q="SELECT `email` FROM `adn24`.`to_do_members` where email='$email' ";
+          
+$statement = $db->prepare($q);
+ $statement->execute();
+   $category = $statement->fetch();
+//   print_r(count($statement->fetchAll()));
+
+    $statement->closeCursor();    
+    $f_name = $category['email'];
+//    echo $f_name.'<br>';
+    echo ''.count($statement->fetchAll()).$f_name;
     return $f_name;
 }
 //register('ggj@@');

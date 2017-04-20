@@ -47,8 +47,12 @@ and open the template in the editor.
        
 </div>
 
-<div id="tasks" style="min-height: 450px;overflow: hidden;float: left;width: 60%;min-width: 390px;border: 0px solid rgba(128, 128, 128, 0.13);max-width: 550px;margin-left: 6%;margin-top: -70px;">
+<div id="tasks" style="min-height: 450px;overflow: hidden;width: 60%;min-width: 390px;border: 0px solid rgba(128, 128, 128, 0.13);max-width: 550px;margin-left: 6%;margin-top: -140px;">
 
+    
+    <h1 style="
+    color: rgba(167, 136, 136, 0.45);
+">Details</h1>
     <ul>
        
         

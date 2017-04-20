@@ -79,11 +79,13 @@ li {
 footer {
     margin-top: 190px;
 }
-section>h2:first-child {
-    font-weight: bold;
-    font-size: xx-large;
-    text-align: center;
-    color: rgba(220, 167, 12, 0.96);
+section>h2 {
+        /* font-weight: bold; */
+    font-size: 25px;
+    text-align: left;
+    color: rgba(158, 123, 123, 0.37);
+    margin-left: 17px;
+    letter-spacing: 0.06em;
 }
 form input,form select {
     border: 5px double #9c7f7f;
@@ -133,5 +135,11 @@ min-width: 30px;}
 
 <!-- the body section -->
 <body>
+    
+    
+    
+
+    
+    
 <header><h1>My To-Do List</h1></header>
 
