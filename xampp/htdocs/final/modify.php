@@ -8,9 +8,12 @@ and open the template in the editor.
         <?php
         // put your code here
         $msg="Add Task";
+        $tomodify=0;
+        $url ="modify.php?m=0";
         if(isset($_REQUEST['m'])){
+            $tomodify=1;
                     $msg="Edit Task";
-
+                    $url="modify.php?m=1";
         }
         ?>
 <div style="min-height: 90px;overflow: hidden;text-align: center">
@@ -21,7 +24,7 @@ and open the template in the editor.
     max-width: 250px;
     opacity:0.35;
 "><?php echo $msg; ?></h2>
-       <form method="POST" style="
+       <form method=""  action="<?php echo $url ?>" style="
     background: transparent;
     margin: 0px;
     color: white;
@@ -31,6 +34,7 @@ and open the template in the editor.
     padding-bottom: 40px;
     
 ">
+           <input name="Modify"  type="hidden"  value="<?php echo $tomodify ?>" />  
             <section style="
         color: white;
     width: 200px;
@@ -52,14 +56,38 @@ and open the template in the editor.
     width: 200px;
     float: left;
     padding-top: 20px;
-">Due Date</section>    <input name="DD" type="date" placeholder="Enter Description..."><br>
-    <section style="
+">Due Date</section>    <input id="Date" name="DD" type="date" placeholder="Enter Description..."><br>
+
+
+
+<section style="
      color: white;
     width: 200px;
     float: left;
     padding-top: 20px;
-">Due time</section>    <input name="Dtime" type="time" placeholder="Enter Description..."><br>
-         
+">Due time</section>    <input id="Time" name="Dtime" type="time" placeholder="Enter Description..."><br>
+         <script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+var h=today.getHours();
+var m =today.getMinutes();
+console.log();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+if(h<10)h="0"+h;
+if(m<0)h="0"+m;
+today = yyyy+'-'+mm+'-'+dd;
+now=h+":"+m;
+document.getElementById("Date").setAttribute("min", today);
+document.getElementById("Time").setAttribute("min", now);
+
+</script>
 
     <input value="Done" type="submit" style="background:mediumaquamarine;cursor: pointer;min-width: 100px;margin:20px;margin-top: 21px;margin-right: 5px;"/>    
        
@@ -67,7 +95,7 @@ and open the template in the editor.
 
        </form>
 
-    <h4 style="opacity:0.3;text-align: right" ><i>All fields are mandatory</i></h4>
+    <h4 style="opacity:0.3;text-align: right" ><i id="msg">All fields are mandatory</i></h4>
 </div>
 </div>
 <br>
