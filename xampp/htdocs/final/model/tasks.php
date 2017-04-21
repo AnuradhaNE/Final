@@ -39,15 +39,51 @@ function changestat($email,$task_t,$task_stat){
  $statement->closeCursor();
  return;
 }
-
+function recordSetToArray($mysql_result) {
+ $rs = array();
+ foreach($mysql_result as $row) {
+        $rs[] = $row;
+    
+    }
+ return ($rs);
+}
+function recordSetToJson($mysql_result) {
+ $rs = array();
+ $e=0;
+ foreach($mysql_result as $row) {
+        
+       $e=$e+1;
+           echo '<br>'.$e;
+     $rs[] = $row;
+           echo $row['task_title'];
+         
+    }
+ return json_encode($rs);
+}
 function  getTasksFor($email)
 {
     
     global $db;
-    $query = "SELECT * FROM `adn24`.`to_do_tasks` WHERE email='$email' ORDER BY `uploaded_on` DESC";
-    $statement = $db->prepare($query);
-    $statement->execute();
-    return $statement;    
+    $query = "SELECT * FROM `adn24`.`to_do_tasks` where `email`='$email' ORDER BY `to_do_tasks`.`task-date` DESC, `to_do_tasks`.`task-time` DESC";
+    $statement = $db->query($query);
+   
+    $c=$statement->fetchAll();
+//    $arr= recordSetToJson($statement);
+//   
+//    $array = json_decode( $arr, true );
+//    $a= $statement->fetch();
+//    foreach ($c as $value) {
+//        //echo $arr;
+//     echo json_encode($value).'<br>';
+//       
+//    }
+//    echo $arr;
+//    
+    $statement->closeCursor();
+    
+    
+    
+    return $c;    
 
 }
 function putaTask($task_title, $task_desc, $email, $task_date, $task_time, $status)

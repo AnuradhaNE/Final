@@ -101,7 +101,9 @@ document.getElementById("Time").setAttribute("min", now);
 <?php 
 if(isset($_POST['Modify']))
 {
-    if($_POST['Modify']==1){}
+    if($_POST['Modify']==1){
+        echo 'modify';
+    }
     else{ 
         
     putaTask($_POST["Title"],$_POST["Description"], $email, $_POST["DD"],$_POST["Dtime"],'ongoing');
