@@ -49,7 +49,7 @@ and open the template in the editor.
      
      
      
-            <h2 style="text-decoration: line-through;cursor: pointer;/* margin-top: 50px; */margin-bottom: 0px;" >';
+            <h2 class="li-task-title" style="text-decoration: line-through;cursor: pointer;/* margin-top: 50px; */margin-bottom: 0px;" >';
           
           
           $li_do_li2='</h2>
@@ -100,10 +100,13 @@ and open the template in the editor.
     margin-top: 9px;
     margin-right: 20px;
     ">✖ </span>
-    
     <section style="
-    /* font-size: large; */
-">Done on 4th April 2017 9:00 </section></li>';
+  
+">
+   ';
+                 
+
+$li_do_li4='</section></li>';
           
           $li_on_li1=' <li style="
     border: 1px solid rgba(255, 165, 0, 0.36);
@@ -288,9 +291,7 @@ $li_on_l3='</section><span style="
         echo $str;
          
      }
-     else if ($value['status']=='done') {
     
-      }
        
     }
     
@@ -861,7 +862,7 @@ $li_on_l3='</section><span style="
      
      
       if ($value['status']=='done') {
-      $str=$li_do_li1.$value['task_title'].$li_do_li2.$value['task_desc'].$li_do_li3;
+      $str=$li_do_li1.$value['task_title'].$li_do_li2.$value['task_desc'].$li_do_li3.'Done on : '.$value['task-date'].'&nbsp;&nbsp;'.$value['task-time'].$li_do_li4;
         echo $str;
       }
        
@@ -900,7 +901,10 @@ $li_on_l3='</section><span style="
       
       $('.modify-button').click(function(){
           
-          window.location.href='modify.php?m=0';
+          window.location.href='modify.php?m=0&tasktitle=mod';
+      });
+      $('.li-task-title').click(function(){
+           window.location.href='details.php?';
       });
   });
   </script>

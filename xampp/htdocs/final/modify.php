@@ -18,7 +18,10 @@ $email=     $_SESSION["email"] ;
         if(isset($_REQUEST['m'])){
             $tomodify=1;
                     $msg="Edit Task";
+                   
+                    
         }
+        
         ?>
 <div style="min-height: 90px;overflow: hidden;text-align: center">
 <div style="min-height: 90px;border-radius: 15px;overflow: hidden;/* float: left; */display: inline-block;padding: 5px;background: #7eeae0;margin: 0;transition: all 0.2s ease;display: inline-block;/* clear: both; */">
@@ -44,14 +47,14 @@ $email=     $_SESSION["email"] ;
     width: 200px;
     float: left;
     padding-top: 20px;
-">Title</section>    <input name="Title" type="text" placeholder="Enter Task Title..."><br>
+">Title</section>    <input id="entertasktitle" name="Title" type="text" placeholder="Enter Task Title..."><br>
 
   <section style="
         color: white;
     width: 200px;
     float: left;
     padding-top: 20px;
-">Description</section>    <input name="Description" type="text" placeholder="Enter Description..."><br>
+">Description</section>    <input id="entertaskdesc" name="Description" type="text" placeholder="Enter Description..."><br>
 
 
 
@@ -60,7 +63,7 @@ $email=     $_SESSION["email"] ;
     width: 200px;
     float: left;
     padding-top: 20px;
-">Due Date</section>    <input id="Date" name="DD" type="date" placeholder="Enter Description..."><br>
+">Due Date</section>    <input  id="Date" name="DD" type="date" placeholder="Enter Description..."><br>
 
 
 
@@ -99,6 +102,32 @@ document.getElementById("Time").setAttribute("min", now);
 
        </form>
 <?php 
+
+
+
+ if(isset($_REQUEST['m'])){
+            $tomodify=1;
+                    $msg="Edit Task";
+                    
+                    if(isset($_REQUEST['tasktitle'])){
+                        
+                        echo '<script>document.getElementById("entertasktitle").value="'.$_REQUEST['tasktitle'].'"</script>';
+                        
+                    }
+                    if(isset($_REQUEST['taskdesc'])){
+                        
+                           echo '<script>document.getElementById("entertaskdesc").value="'.$_REQUEST['taskdesc'].'"</script>';
+                    }
+                    if(isset($_REQUEST['taskdate'])){
+                        
+                           echo '<script>document.getElementById("Date").value="'.$_REQUEST['taskdate'].'"</script>';
+                    }
+                    if(isset($_REQUEST['tasktime'])){
+                           echo '<script>document.getElementById("Time").value="'.$_REQUEST['tasktime'].'"</script>';
+                    }
+                    
+        }
+
 if(isset($_POST['Modify']))
 {
     if($_POST['Modify']==1){
