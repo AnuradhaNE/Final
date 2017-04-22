@@ -27,7 +27,7 @@ function editTask($email,$old_t,$task_t,$task_desc,$task_date,$task_time,$task_s
       $statement = $db->prepare($q);
  $statement->execute();
  $statement->closeCursor();
- echo 'done'.$q;
+ //echo 'done'.$q;
  return ;
 }
 function changestat($email,$task_t,$task_stat){
@@ -86,6 +86,35 @@ function  getTasksFor($email)
     return $c;    
 
 }
+
+
+function  getTaskFor($email,$task_title)
+{
+    
+    global $db;
+    $query = "SELECT * FROM `adn24`.`to_do_tasks` where `email`='$email' and `task_title`='$task_title' ORDER BY `to_do_tasks`.`task-date` DESC, `to_do_tasks`.`task-time` DESC";
+    $statement = $db->query($query);
+   
+    $c=$statement->fetchAll();
+//    $arr= recordSetToJson($statement);
+//   
+//    $array = json_decode( $arr, true );
+//    $a= $statement->fetch();
+//    foreach ($c as $value) {
+//        //echo $arr;
+//     echo json_encode($value).'<br>';
+//       
+//    }
+//    echo $arr;
+//    
+    $statement->closeCursor();
+    
+    
+    
+    return $c;    
+
+}
+
 function putaTask($task_title, $task_desc, $email, $task_date, $task_time, $status)
 {
      global $db;

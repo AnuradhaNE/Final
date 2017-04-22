@@ -55,7 +55,7 @@ and open the template in the editor.
           $li_do_li2='</h2>
              
             
-           <section style="
+           <section class="li-task-desc" style="
     margin: 3;
     padding: 0;
     padding-left: 9px;
@@ -83,7 +83,7 @@ and open the template in the editor.
     margin-top: 8px;
     " class="del">🗑</span>
          
-     <span onclick="" style="
+     <span class="uncheck" onclick="" style="
     font-size: large;
     float: right;
     margin-top: -49px;
@@ -102,8 +102,7 @@ and open the template in the editor.
     ">✖ </span>
     <section style="
   
-">
-   ';
+">';
                  
 
 $li_do_li4='</section></li>';
@@ -137,7 +136,7 @@ $li_do_li4='</section></li>';
        $li_on_li2=   '</h2>
              
             
-           <section style="
+           <section class="li-task-desc"  style="
     margin: 3;
     padding: 0;
     padding-left: 9px;
@@ -923,7 +922,25 @@ $li_on_l3='</section><span style="
       
       $('.modify-button').click(function(){
           
-          window.location.href='modify.php?m=0&tasktitle=mod';
+//         
+          var d=$(this).parent().children('.li-task-title').html();
+             var desc=$(this).parent().children('.li-task-desc').html() ;
+             console.log('modify.php?m=0&tasktitle='+d+'&taskdesc='+desc);
+             window.location.href='modify.php?m=0&tasktitle='+d+'&taskdesc='+desc;
+             
+             
+
+      });
+      $('.uncheck').click(function(){
+          
+//         
+          var d=$(this).parent().children('.li-task-title').html();
+             var desc=$(this).parent().children('.li-task-desc').html() ;
+             console.log('modify.php?m=0&tasktitle='+d+'&taskdesc='+desc);
+             window.location.href='modify.php?m=5&tasktitle='+d+'&taskdesc='+desc;
+             
+             
+
       });
       $('.li-task-title').click(function(){
            window.location.href='details.php?';

@@ -16,9 +16,25 @@ $email=     $_SESSION["email"] ;
         $tomodify=0;
         $url ="modify.php";
         if(isset($_REQUEST['m'])){
-            $tomodify=1;
+           
+            if($_REQUEST['m']==0){  $tomodify=1;
                     $msg="Edit Task";
                    
+                    
+                    $c= getTaskFor($email,$_REQUEST["tasktitle"]);
+                    $dued="90-12-09";
+                    $duet="07:09";
+                       foreach ($c as $value) {
+                           
+                           $duet=$value['task-time'];
+                             $dued=$value['task-date'];
+                           break;
+                       }
+              }
+              elseif($_REQUEST['m']==5){
+                   $msg="Uncheck Task";
+                     $tomodify=5;
+              }
                     
         }
         
@@ -41,13 +57,25 @@ $email=     $_SESSION["email"] ;
     padding-bottom: 40px;
     
 ">
-           <input name="Modify"  type="hidden"  value="<?php echo $tomodify ?>" />  
+           <input name="Modify"  type="hidden"  value="<?php echo $tomodify; ?>" />  
+               <input name="tasktitle"  type="hidden"  value="<?php echo $_REQUEST['tasktitle']; ?>" />  
             <section style="
         color: white;
     width: 200px;
     float: left;
     padding-top: 20px;
-">Title</section>    <input id="entertasktitle" name="Title" type="text" placeholder="Enter Task Title..."><br>
+">Title</section>    <input
+    
+    value="
+    <?php
+    if(isset($_REQUEST['']))
+    
+    ?>
+    
+    
+    "
+    
+    id="entertasktitle" name="Title" type="text" placeholder="Enter Task Title..."><br>
 
   <section style="
         color: white;
@@ -121,8 +149,14 @@ document.getElementById("Date").setAttribute("min", today);
                         
                            echo '<script>document.getElementById("Date").value="'.$_REQUEST['taskdate'].'"</script>';
                     }
+                    else if($_REQUEST['m']==0){
+                         echo '<script>document.getElementById("Date").value="'.$dued.'"</script>';
+                    }
                     if(isset($_REQUEST['tasktime'])){
                            echo '<script>document.getElementById("Time").value="'.$_REQUEST['tasktime'].'"</script>';
+                    }
+                    else if($_REQUEST['m']==0){
+                         echo '<script>document.getElementById("Time").value="'.$duet.'"</script>';
                     }
                     
         }
@@ -130,8 +164,17 @@ document.getElementById("Date").setAttribute("min", today);
 if(isset($_POST['Modify']))
 {
     if($_POST['Modify']==1){
-        echo 'modify';
-    }
+     
+        
+        editTask($email, $_POST['tasktitle'], $_POST["Title"],$_POST["Description"],  $_POST["DD"],$_POST["Dtime"],'ongoing');
+     echo '<script>window.location.href = "main.php";</script>'; 
+        }
+        else  if($_POST['Modify']==5){
+     
+        
+        editTask($email, $_POST['tasktitle'], $_POST["Title"],$_POST["Description"],  $_POST["DD"],$_POST["Dtime"],'ongoing');
+     echo '<script>window.location.href = "main.php";</script>'; 
+        }
     else{ 
         
     putaTask($_POST["Title"],$_POST["Description"], $email, $_POST["DD"],$_POST["Dtime"],'ongoing');
