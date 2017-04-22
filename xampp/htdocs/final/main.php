@@ -43,7 +43,7 @@ and open the template in the editor.
     margin-left: 187px;
     margin-right: -9px;
     display: none;
-    " class="confirm">Are you sure? <a class="yn" href="delete">Yes</a> <a class="yn no" style="
+    " class="confirm">Are you sure? <a class="yn yes" >Yes</a> <a class="yn no" style="
     cursor: pointer;
 ">No</a></section>
      
@@ -127,7 +127,7 @@ $li_do_li4='</section></li>';
     margin-left: 187px;
     margin-right: -9px;
     display: none;
-    " class="confirm">Are you sure? <a class="yn" href="delete">Yes</a> <a class="yn no" style="
+    " class="confirm">Are you sure? <a class="yn yes" >Yes</a> <a class="yn no" style="
     cursor: pointer;
 ">No</a></section>
      
@@ -898,8 +898,23 @@ $li_on_l3='</section><span style="
     window.location.reload();
         //  more codes
    });
-//          
+//    
+
+
       });
+      
+      $('.yn.yes').click(function(){
+          
+     var d=$(this).parent().parent().children('.li-task-title').html();
+  $.post("task_func_del_check.php",{ email:'<?php echo $_SESSION["email"]?>',f:'d',tasktitle: d} ,function(data) {
+    window.location.reload();
+        //  more codes
+   });
+
+
+      });
+      
+      
       $(".yn.no").click(function(){
           
            $(this).parent().fadeOut("fast");
