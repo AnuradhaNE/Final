@@ -133,9 +133,7 @@ $li_do_li4='</section></li>';
      
      
      
-            <h2 style="cursor: pointer;/* margin-top: 50px; */margin-bottom: 0px;" class="li-task-title"> 
-            
-';
+            <h2 style="cursor: pointer;/* margin-top: 50px; */margin-bottom: 0px;" class="li-task-title">';
        $li_on_li2=   '</h2>
              
             
@@ -184,7 +182,7 @@ $li_on_l3='</section><span style="
     margin-top: 8px;
     margin-right: 20px;
     ">🖊</span>
-        <span onclick="" style="
+        <span class="check" onclick="" style="
     font-size: x-large;
     float: right;
     margin-top: -49px;
@@ -892,7 +890,16 @@ $li_on_l3='</section><span style="
          $(this).parent().children('.confirm').fadeIn("fast");
          $(this).fadeOut("fast");
      });
-      
+      $('.check').click(function(){
+          var d=$(this).parent().children('.li-task-title').html();
+          console.log(d);
+//          console.log(d==='Set Alarm');
+           $.post("task_func_del_check.php",{ email:'<?php echo $_SESSION["email"]?>',f:'c',tasktitle: d} ,function(data) {
+    window.location.reload();
+        //  more codes
+   });
+//          
+      });
       $(".yn.no").click(function(){
           
            $(this).parent().fadeOut("fast");

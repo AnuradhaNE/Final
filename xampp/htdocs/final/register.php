@@ -70,7 +70,15 @@ and open the template in the editor.
         require 'model/people.php';
        // echo 'ready to register : '.$_POST["G"];
         register($_POST["Email"], $_POST["FirstName"], $_POST["LastName"],$_POST["Password"], $_POST["CellPhone"], $_POST["Birthday"], $_POST["G"]);
-    }
+            
+        echo "<script>window.location.href='index.php'</script>";
+        }
+        else{
+            
+                    echo "<br><br>An Error Occured";
+
+        }
+        
     ?>
     
     </form>

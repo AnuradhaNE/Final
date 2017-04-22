@@ -92,7 +92,6 @@ if(m<0)h="0"+m;
 today = yyyy+'-'+mm+'-'+dd;
 now=h+":"+m;
 document.getElementById("Date").setAttribute("min", today);
-document.getElementById("Time").setAttribute("min", now);
 
 </script>
 
