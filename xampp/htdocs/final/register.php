@@ -18,7 +18,7 @@ and open the template in the editor.
     max-width: 250px;
     opacity:0.35;
 ">Register now</h2>
-       <form id="reg" method="POST" style="
+    <form id="reg" action="register.php" method="POST" style="
     background: transparent;
     margin: 0px;
     color: white;
@@ -32,36 +32,48 @@ and open the template in the editor.
     color: white;
     width: 200px;
     float: left;
-">Email :</section>    <input name="Email" type="email" placeholder="Enter Email..."><br>
+    ">Email :</section>    <input required="true" name="Email" type="email" placeholder="Enter Email..."><br>
          <section style="
     width: 200px;
     float: left;
-">First Name :</section>     <input name="FirstName" type="text" placeholder="Enter First Name..."><br>
+">First Name :</section>     <input required="true" name="FirstName" type="text" placeholder="Enter First Name..."><br>
          <section style="
     width: 200px;
     float: left;
-">Last Name :</section>     <input name="LastName" type="text" placeholder="Enter Last Name..."><br>
+">Last Name :</section>     <input required="true" name="LastName" type="text" placeholder="Enter Last Name..."><br>
 
   <section style="
     width: 200px;
     float: left;
-">Password :</section>     <input name="Password" type="password" placeholder="Enter a password"><br>
+">Password :</section>     <input required="true" name="Password" type="password" placeholder="Enter a password"><br>
          <section style="
     width: 200px;
     float: left;
-">Mobile Number :</section>     <input name="CellPhone" type="tel" placeholder="Enter Mobile Number..."><br>
+    ">Mobile Number :</section>     <input minlength="10" required="true" name="CellPhone" type="tel" placeholder="Enter Mobile Number..."><br>
         <section style="
     width: 200px;
     float: left;
-">Birthday :</section>      <input name="Birthday" type="date" placeholder="Enter your Birthday..."><br>
+">Birthday :</section>      <input required="true" name="Birthday" type="date" placeholder="Enter your Birthday..."><br>
             <section style="
     width: 200px;
     float: left;
-">Gender :</section><label for="g_m">Male</label>   <input id="g_m" name="G" value="M" type="radio">
-             <label for="g_f">Female</label>   <input id="g_f" name="G" value="F" type="radio">
+">Gender :</section><label for="g_m">Male</label>   <input required="true" id="g_m" name="G" value="m" type="radio">
+             <label for="g_f">Female</label>   <input required="true" id="g_f" name="G" value="f" type="radio">
+<!--             <label for="g_o">O</label>   <input required="true" id="g_o" name="G" value="o" type="radio">-->
              <br><br>
              <input value="Register" type="submit" style="cursor: pointer;min-width: 100px;margin:20px;margin-top: 21px;margin-right: 5px;"/>    
-        </form>
+      
+    <?php
+    
+    if(isset($_POST["G"])&&isset($_POST["Password"])&&isset($_POST["Email"])){
+        
+        require 'model/people.php';
+       // echo 'ready to register : '.$_POST["G"];
+        register($_POST["Email"], $_POST["FirstName"], $_POST["LastName"],$_POST["Password"], $_POST["CellPhone"], $_POST["Birthday"], $_POST["G"]);
+    }
+    ?>
+    
+    </form>
     <h4 style="opacity:0.3;text-align: right" ><i>All fields are mandatory</i></h4>
 </div>
 </div>
