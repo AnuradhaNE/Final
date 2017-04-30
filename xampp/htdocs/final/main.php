@@ -7,6 +7,16 @@ and open the template in the editor.
 <?php include 'view/header.php'; 
 
 ?>
+<?php
+ 
+   
+       date_default_timezone_set('America/New_York');
+
+   $todays_date=date("Y-m-d G:i:s", time());;
+   print date("Y-m-d H:i:s", time());;
+//G:i:s <br>
+  
+   ?>
         <?php
         // put your code here
         require 'model/tasks.php';
@@ -102,10 +112,10 @@ and open the template in the editor.
     ">✖ </span>
     <section style="
   
-">';
+"><span style="padding:3px;text-align:left">';
                  
 
-$li_do_li4='</section></li>';
+$li_do_li4='</span></section></li>';
           
           $li_on_li1=' <li style="
     border: 1px solid rgba(255, 165, 0, 0.36);
@@ -199,7 +209,9 @@ $li_on_l3='</section><span style="
     margin-right: 20px;
     ">🗸</span><section style="
     /* font-size: large; */
-">Due in 3 days</section></li>';
+"><span style="padding:3px" >';
+
+$li_on_l4=' <span> </section></li>';
        
   
     
@@ -283,8 +295,9 @@ $li_on_l3='</section><span style="
      
      if($value['status']=='ongoing'){
          
-         
-         $str=$li_on_li1.$value['task_title'].$li_on_li2.$value['task_desc'].$li_on_l3;
+         $diff=date_diff(date_create($todays_date),date_create($value['task-date']));
+
+         $str=$li_on_li1.$value['task_title'].$li_on_li2.$value['task_desc'].$li_on_l3.'Due in '.$diff->format('%y years %m months %R%a days %h hours %i minutes %s seconds').$li_on_l4;
         echo $str;
          
      }
