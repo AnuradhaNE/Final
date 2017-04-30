@@ -13,7 +13,7 @@ and open the template in the editor.
        date_default_timezone_set('America/New_York');
 
    $todays_date=date("Y-m-d G:i:s", time());;
-   print date("Y-m-d H:i:s", time());;
+ //  print date("Y-m-d H:i:s", time());;
 //G:i:s <br>
   
    ?>
@@ -872,7 +872,7 @@ $li_on_l4=' <span> </section></li>';
      
      
       if ($value['status']=='done') {
-      $str=$li_do_li1.$value['task_title'].$li_do_li2.$value['task_desc'].$li_do_li3.'Done on : '.$value['task-date'].'&nbsp;&nbsp;'.$value['task-time'].$li_do_li4;
+      $str=$li_do_li1.$value['task_title'].$li_do_li2.$value['task_desc'].$li_do_li3.'Done on : '.$value['done_date'].'&nbsp;&nbsp;'.$value['done_time'].$li_do_li4;
         echo $str;
       }
        

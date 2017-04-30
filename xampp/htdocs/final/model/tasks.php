@@ -114,7 +114,17 @@ function  getTaskFor($email,$task_title)
     return $c;    
 
 }
-
+function editdonetimeanddate($done_date,$done_time,$task_title,$email)
+{
+    global $db;
+    $q ="UPDATE `to_do_tasks` SET `done_date` = '$done_date', `done_time` = '$done_time' WHERE `to_do_tasks`.`task_title` = '$task_title' AND `to_do_tasks`.`email` = '$email';
+";
+    $statement = $db->prepare($q);
+ $statement->execute();
+ $statement->closeCursor();
+ //echo 'done'.$q;
+ return ;
+}
 function putaTask($task_title, $task_desc, $email, $task_date, $task_time, $status)
 {
      global $db;
