@@ -75,7 +75,7 @@ and open the template in the editor.
         }
         else{
             
-                    echo "<br><br>An Error Occured";
+//                    echo "<br><br>An Error Occured";
 
         }
         
