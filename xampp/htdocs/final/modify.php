@@ -24,12 +24,12 @@ $email=     $_SESSION["email"] ;
                     $c= getTaskFor($email,$_REQUEST["tasktitle"]);
                     $dued="90-12-09";
                     $duet="07:09";
-                       foreach ($c as $value) {
+//                       foreach ($c as $value) {
                            
-                           $duet=$value['task-time'];
-                             $dued=$value['task-date'];
-                           break;
-                       }
+                           $duet=$c['task-time'];
+                             $dued=$c['task-date'];
+//                           break;
+//                       }
               }
               elseif($_REQUEST['m']==5){
                    $msg="Uncheck Task";
@@ -66,14 +66,7 @@ $email=     $_SESSION["email"] ;
     padding-top: 20px;
 ">Title</section>    <input
     
-    value="
-    <?php
-    if(isset($_REQUEST['']))
-    
-    ?>
-    
-    
-    "
+    value=""
     
     id="entertasktitle" name="Title" type="text" placeholder="Enter Task Title..."><br>
 

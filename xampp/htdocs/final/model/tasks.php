@@ -95,7 +95,7 @@ function  getTaskFor($email,$task_title)
     $query = "SELECT * FROM `adn24`.`to_do_tasks` where `email`='$email' and `task_title`='$task_title' ORDER BY `to_do_tasks`.`task-date` DESC, `to_do_tasks`.`task-time` DESC";
     $statement = $db->query($query);
    
-    $c=$statement->fetchAll();
+    $c=$statement->fetch();
 //    $arr= recordSetToJson($statement);
 //   
 //    $array = json_decode( $arr, true );

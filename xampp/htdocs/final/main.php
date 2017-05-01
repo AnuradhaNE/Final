@@ -55,7 +55,7 @@ and open the template in the editor.
     margin-left: 187px;
     margin-right: -9px;
     display: none;
-    " class="confirm">Are you sure? <a class="yn yes" >Yes</a> <a class="yn no" style="
+    " class="confirm">Are you sure? <a class="yn yes" style="cursor:pointer">Yes</a> <a class="yn no" style="
     cursor: pointer;
 ">No</a></section>
      
@@ -150,7 +150,7 @@ $li_do_li4='</span></section><span style="
     margin-left: 187px;
     margin-right: -9px;
     display: none;
-    " class="confirm">Are you sure? <a class="yn yes" >Yes</a> <a class="yn no" style="
+    " class="confirm">Are you sure? <a style="cursor:pointer" class="yn yes" >Yes</a> <a class="yn no" style="
     cursor: pointer;
 ">No</a></section>
      
@@ -259,6 +259,13 @@ $li_on_l4=' <span> </section><span style="
         //  more codes
    });
   }
+//   function details(title)
+//  {
+//          $.post("task_func_del_check.php",{ email:'<?php echo $_SESSION["email"]?>',f:'v',tasktitle: title} ,function(data) {
+//   // window.location.reload();
+//        //  more codes
+//   });
+//  }
   </script>
 
 <div style="min-height: 90px;border-bottom-right-radius: 15px;border-top-right-radius: 15px;overflow: hidden;/* float: left; */display: inline-block;padding: 5px;background: rgba(249, 101, 101, 0.84);margin: 0;transition: all 0.2s ease;display: inline-block;/* clear:curs both; */">
@@ -1072,7 +1079,14 @@ $li_on_l4=' <span> </section><span style="
 
       });
       $('.li-task-title').click(function(){
-           window.location.href='details.php?';
+         
+           var t=$(this).html();
+           window.location.href='details.php?tasktitle='+t;
+//            $.get("details.php",{ email:'',f:'v',tasktitle: t} ,function(data) {
+//               //  window.location.href='details.php?';
+// // window.location.reload();
+//        //  more codes
+//   });
       });
   });
   </script>
