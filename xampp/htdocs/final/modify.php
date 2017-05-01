@@ -7,7 +7,19 @@ and open the template in the editor.
 <?php
 require 'model/tasks.php';
 session_start();
+
+
+$email="";
+
+if(!isset($_SESSION["email"]))
+{
+ header('location:index.php');
+}
+else{
+
 $email=     $_SESSION["email"] ;
+}
+
 ?>
 <?php include 'view/header.php'; ?>
         <?php
