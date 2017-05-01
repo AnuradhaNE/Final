@@ -15,6 +15,9 @@ if(isset($_REQUEST['f'])&&isset($_REQUEST['email'])&&isset($_REQUEST['tasktitle'
      elseif ($_REQUEST['f']=='u') {
         changestat($_REQUEST['email'],$_REQUEST['tasktitle'], 'ongoing');
     }
+     elseif ($_REQUEST['f']=='v') {
+        changestat($_REQUEST['email'],$_REQUEST['tasktitle'], 'overdue');
+    }
     header('location:main.php');
 }
 else {

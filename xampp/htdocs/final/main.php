@@ -246,6 +246,21 @@ $li_on_l4=' <span> </section><span style="
         }
               
         ?>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  
+  <script>
+  function setOv(title)
+  {
+          $.post("task_func_del_check.php",{ email:'<?php echo $_SESSION["email"]?>',f:'v',tasktitle: title} ,function(data) {
+   // window.location.reload();
+        //  more codes
+   });
+  }
+  </script>
+
 <div style="min-height: 90px;border-bottom-right-radius: 15px;border-top-right-radius: 15px;overflow: hidden;/* float: left; */display: inline-block;padding: 5px;background: rgba(249, 101, 101, 0.84);margin: 0;transition: all 0.2s ease;display: inline-block;/* clear:curs both; */">
         <h2 style="
     width: 60%;
@@ -313,7 +328,11 @@ $li_on_l4=' <span> </section><span style="
          
          $diff=date_diff(date_create($todays_date),date_create($value['task-date'].' '.$value['task-time']));
              $due='';
-           if($diff->format("%R")!='-'){  if($diff->y>0)
+           if($diff->format("%R")=='-')
+           {
+               echo '<script>setOv("'.$value['task_title'].'");</script>';
+           }
+               else{  if($diff->y>0)
              {
                 $due= ($diff->y.' years '.$diff->m.' months '.$diff->d.' days '.$diff->h.' hours '.$diff->i.' min '.$diff->s. ' secs ');
              }
@@ -985,11 +1004,10 @@ $li_on_l4=' <span> </section><span style="
         
     </section>    
 </div>
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-  <script>
+
+
+<script>
+      
   $(document).ready(function(){
       
      $(".del").click(function(){
