@@ -39,6 +39,8 @@ and open the template in the editor.
     border-left: 11px solid #fa7d7c;
     margin-bottom: 21px;
     min-height: 120px;
+    overflow:hidden;
+        margin-top: 37px;
     ">
 
     
@@ -74,9 +76,15 @@ and open the template in the editor.
     /* font-style: italic; */
     margin-top: 0px;
     margin-bottom: 13px;
-    text-decoration: line-through;
+    text-decoration: line-through;text-transform: capitalize;
 ">';
-          $li_do_li3='</section><span style="
+          $li_do_li3='</section>
+    <section style="
+  margin-bottom:0;
+"><span style="padding:3px;text-align:left;margin-left:0">';
+                 
+
+$li_do_li4='</span></section><span style="
     font-size: x-large;
     float: right;
     margin-top: -49px;
@@ -109,24 +117,30 @@ and open the template in the editor.
     /* position: absolute; */
     margin-top: 9px;
     margin-right: 20px;
-    ">✖ </span>
-    <section style="
-  
-"><span style="padding:3px;text-align:left">';
-                 
-
-$li_do_li4='</span></section></li>';
+    ">✖ </span></li>';
           
-          $li_on_li1=' <li style="
+          $li_on_li_1=' <li style="
     border: 1px solid rgba(255, 165, 0, 0.36);
     border-left: 11px solid #63efe1;
     margin-bottom: 21px;
     min-height: 120px;
+    overflow:hidden;
+        margin-top: 37px;
     ">
 
-    
+    ';
+                $li_ov_li_1=' <li style="
+    border: 1px solid rgba(255, 165, 0, 0.36);
+    border-left: 11px solid #ff6c3b;
+    margin-bottom: 21px;
+    min-height: 120px;
+    overflow:hidden;
+        margin-top: 37px;
+    ">
+
+    ';
      
-     
+      $li_on_li1='
      <section style="
        color: rgb(243, 137, 60);
     border-bottom: 1px solid;
@@ -154,11 +168,15 @@ $li_do_li4='</span></section></li>';
     color: rgba(62, 62, 62, 0.79);
     /* font-style: italic; */
     margin-top: 0px;
-    margin-bottom: 13px;
+    margin-bottom: 13px;text-transform: capitalize;
 ">';
 
 
-$li_on_l3='</section><span style="
+$li_on_l3='</section><section style="
+       margin-bottom: 0;
+"><span style="padding:3px;margin-left:0" >';
+
+$li_on_l4=' <span> </section><span style="
     font-size: x-large;
     float: right;
     margin-top: -49px;
@@ -207,11 +225,7 @@ $li_on_l3='</section><span style="
     /* position: absolute; */
     margin-top: 9px;
     margin-right: 20px;
-    ">🗸</span><section style="
-    /* font-size: large; */
-"><span style="padding:3px" >';
-
-$li_on_l4=' <span> </section></li>';
+    ">🗸</span></li>';
        
   
     
@@ -295,10 +309,38 @@ $li_on_l4=' <span> </section></li>';
      
      if($value['status']=='ongoing'){
          
-         $diff=date_diff(date_create($todays_date),date_create($value['task-date']));
-
-         $str=$li_on_li1.$value['task_title'].$li_on_li2.$value['task_desc'].$li_on_l3.'Due in '.$diff->format('%y years %m months %R%a days %h hours %i minutes %s seconds').$li_on_l4;
-        echo $str;
+         
+         
+         $diff=date_diff(date_create($todays_date),date_create($value['task-date'].' '.$value['task-time']));
+             $due='';
+           if($diff->format("%R")!='-'){  if($diff->y>0)
+             {
+                $due= ($diff->y.' years '.$diff->m.' months '.$diff->d.' days '.$diff->h.' hours '.$diff->i.' min '.$diff->s. ' secs ');
+             }
+             else              if($diff->m>0)
+             {
+                $due= ($diff->m.' months '.$diff->d.' days '.$diff->h.' hours '.$diff->i.' min '.$diff->s. ' secs ');
+             }
+              else              if($diff->d>0)
+             {
+                $due= ($diff->d.' days '.$diff->h.' hours '.$diff->i.' min '.$diff->s. ' secs ');
+             }
+               else              if($diff->h>0)
+             {
+                $due= ($diff->h.' hours '.$diff->i.' min '.$diff->s. ' secs ');
+             }
+              else              if($diff->i>0)
+             {
+                $due= ($diff->i.' min '.$diff->s. ' secs ');
+             }
+                else              if($diff->s>0)
+             {
+                $due= ($diff->s. ' secs ');
+             }
+           }
+         $str=$li_on_li_1.$li_on_li1.$value['task_title'].$li_on_li2.$value['task_desc'].$li_on_l3.'Due in '. $due.$li_on_l4;
+      if($due!='')  echo $str;
+//      print_r($diff);
          
      }
     
@@ -606,8 +648,64 @@ $li_on_l4=' <span> </section></li>';
         </ul>
         
         
-        
-        
+         <h2 style="    margin-top: 49px;">Overdue Tasks</h2>       
+        <ul id="tasks-overdue">   
+            
+            
+            
+            
+                  <?php
+            
+                foreach ($c as $value) {
+        //echo $arr;
+//     echo json_encode($value).'<br>';
+     
+     if($value['status']=='ongoing'or $value['status']=='overdue'){
+         
+         
+         
+         $diff=date_diff(date_create($todays_date),date_create($value['task-date'].' '.$value['task-time']));
+             $due='';
+           if($diff->format("%R")=='-'){  if($diff->y>0)
+             {
+                $due= ($diff->y.' years '.$diff->m.' months '.$diff->d.' days '.$diff->h.' hours '.$diff->i.' min '.$diff->s. ' secs ');
+             }
+             else              if($diff->m>0)
+             {
+                $due= ($diff->m.' months '.$diff->d.' days '.$diff->h.' hours '.$diff->i.' min '.$diff->s. ' secs ');
+             }
+              else              if($diff->d>0)
+             {
+                $due= ($diff->d.' days '.$diff->h.' hours '.$diff->i.' min '.$diff->s. ' secs ');
+             }
+               else              if($diff->h>0)
+             {
+                $due= ($diff->h.' hours '.$diff->i.' min '.$diff->s. ' secs ');
+             }
+              else              if($diff->i>0)
+             {
+                $due= ($diff->i.' min '.$diff->s. ' secs ');
+             }
+                else              if($diff->s>0)
+             {
+                $due= ($diff->s. ' secs ');
+             }
+           }
+         $str=$li_ov_li_1.$li_on_li1.$value['task_title'].$li_on_li2.$value['task_desc'].$li_on_l3.'Overdue by '. $due.$li_on_l4;
+      if($due!='')  echo $str;
+//      print_r($diff);
+         
+     }
+    
+       
+    }
+    
+            
+            
+            ?>
+            
+            
+        </ul>
         
         <h2 style="    margin-top: 49px;">Completed Tasks</h2>       
         <ul id="tasks-completed">   

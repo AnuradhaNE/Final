@@ -64,7 +64,7 @@ function  getTasksFor($email)
 {
     
     global $db;
-    $query = "SELECT * FROM `adn24`.`to_do_tasks` where `email`='$email' ORDER BY `to_do_tasks`.`task-date` DESC, `to_do_tasks`.`task-time` DESC";
+    $query = "SELECT * FROM `adn24`.`to_do_tasks` where `email`='$email' ORDER BY `to_do_tasks`.`task-date` ASC";
     $statement = $db->query($query);
    
     $c=$statement->fetchAll();
