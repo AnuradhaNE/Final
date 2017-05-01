@@ -17,6 +17,9 @@ and open the template in the editor.
             $st= getTaskFor($_SESSION["email"],  $_REQUEST['tasktitle']);
 //            print_r($st);
         }// put your code here
+  else{
+           header('location:index.php');
+            } 
         ?>
 <div style="min-height: 90px;border-bottom-right-radius: 15px;border-top-right-radius: 15px;overflow: hidden;/* float: left; */display: inline-block;padding: 5px;background: rgba(249, 101, 101, 0.84);margin: 0;transition: all 0.2s ease;display: inline-block;/* clear:curs both; */">
         <h2 style="
