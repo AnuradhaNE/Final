@@ -70,6 +70,7 @@ and open the template in the editor.
            <section class="li-task-desc" style="
     margin: 3;
     padding: 0;
+   
     padding-left: 9px;
     font-size: medium;
     color: rgba(62, 62, 62, 0.79);
@@ -77,6 +78,7 @@ and open the template in the editor.
     margin-top: 0px;
     margin-bottom: 13px;
     text-decoration: line-through;text-transform: capitalize;
+     display:none;
 ">';
           $li_do_li3='</section>
     <section style="
@@ -169,6 +171,7 @@ $li_do_li4='</span></section><span style="
     /* font-style: italic; */
     margin-top: 0px;
     margin-bottom: 13px;text-transform: capitalize;
+     display:none;
 ">';
 
 
