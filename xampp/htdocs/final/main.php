@@ -247,7 +247,9 @@ $li_on_l4=' <span> </section><span style="
 //            
 ////            echo $c;
         }
-              
+         else{
+           header('location:index.php');
+            }        
         ?>
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
