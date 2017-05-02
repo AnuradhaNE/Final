@@ -32,9 +32,14 @@ input[type="submit"] {
     background: #f13c3c;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 5px;cursor:pointer;
 }
-
+input[disabled="disabled"]  {
+    cursor: not-allowed;
+}
+input[type="submit",disabled="disabled"] {
+    cursor: not-allowed;
+}
 h2 {
     font-weight: bold;
 }
@@ -119,15 +124,13 @@ a:hover {
   color: black;
     transition: 0.2s;
 }
-
-#reg input[type="text"],#reg input[type="radio"], #reg select {
+#reg input[type="text"],#reg input[type="radio"],#reg input[type="password"],#reg input[type="email"],#reg input[type="tel"],#reg input[type="date"], #reg select {
     border: 5px double #9c7f7f;
     /* text-align: right; */
     /* float: right; */
     margin-top: 23px;
     outline: none;
 min-width: 30px;}
-    
     
 
           </style>
