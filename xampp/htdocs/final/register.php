@@ -42,10 +42,57 @@ and open the template in the editor.
     float: left;
 ">Last Name :</section>     <input required="true" name="LastName" type="text" placeholder="Enter Last Name..."><br>
 
+ 
+            
+              <section style="
+    width: 200px;
+    float: left;
+">Password :</section>     <input autocomplete="off" autocomplete="off" onkeyup="key_up()" id="pwd" required="true" name="Password" type="password" placeholder="Enter a password"><br>
   <section style="
     width: 200px;
     float: left;
-">Password :</section>     <input required="true" name="Password" type="password" placeholder="Enter a password"><br>
+">Confirm Password :</section>     <input  onkeyup="key_up()" autocomplete="off" id="cpwd" required="true" name="CPassword" type="password" placeholder="Enter a password"><br>
+
+<script>
+function key_up()
+{
+
+console.log('key_up...');
+var p=document.getElementById('pwd');
+var cp=document.getElementById('cpwd');
+var d=document.getElementById('regB');
+
+if(p.value!=""&&cp.value!=""){
+
+if(p.value==cp.value){
+d.disabled=false;
+//$('#regB').removeClass('dis');
+console.log('c==p');
+p.setCustomValidity('');
+
+
+}
+else{
+
+//$('#regB').addClass('dis');
+   p.setCustomValidity("Passwords Don't Match");
+}
+
+}
+else{//
+//d.disabled=true;
+//$('#regB').addClass('dis');
+}
+
+}
+
+</script>
+            
+            
+            
+            
+            
+            
          <section style="
     width: 200px;
     float: left;
