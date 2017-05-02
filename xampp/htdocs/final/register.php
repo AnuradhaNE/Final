@@ -40,7 +40,7 @@ and open the template in the editor.
          <section style="
     width: 200px;
     float: left;
-">Last Name :</section>     <input required="true" name="LastName" type="text" placeholder="Enter Last Name..."><br>
+">Last Name :</section>     <input autocomplete="off" required="true" name="LastName" type="text" placeholder="Enter Last Name..."><br>
 
    <section style="
     width: 200px;
