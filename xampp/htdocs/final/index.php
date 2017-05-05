@@ -41,12 +41,12 @@ session_unset();
     color: white;
     width: 200px;
     float: left;
-">Email :</section>    <input name="Email" type="email" placeholder="Enter Email..."><br>
+">Email :</section>    <input required="true" name="Email" type="email" placeholder="Enter Email..."><br>
 
   <section style="
     width: 200px;
     float: left;
-">Password :</section>     <input name="Password" type="password" placeholder="Enter a password"><br>
+">Password :</section>     <input required="true" name="Password" type="password" placeholder="Enter a password"><br>
 
 
     
