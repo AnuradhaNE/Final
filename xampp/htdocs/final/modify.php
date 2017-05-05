@@ -80,14 +80,14 @@ $email=     $_SESSION["email"] ;
     
     value=""
     
-    id="entertasktitle" name="Title" type="text" placeholder="Enter Task Title..."><br>
+    id="entertasktitle"  required="true" name="Title" type="text" placeholder="Enter Task Title..."><br>
 
   <section style="
         color: white;
     width: 200px;
     float: left;
     padding-top: 20px;
-">Description</section>    <input id="entertaskdesc" name="Description" type="text" placeholder="Enter Description..."><br>
+">Description</section>    <input  required="true" id="entertaskdesc" name="Description" type="text" placeholder="Enter Description..."><br>
 
 
 
@@ -96,7 +96,7 @@ $email=     $_SESSION["email"] ;
     width: 200px;
     float: left;
     padding-top: 20px;
-">Due Date</section>    <input  id="Date" name="DD" type="date" placeholder="Enter Description..."><br>
+">Due Date</section>    <input  required="true"  id="Date" name="DD" type="date" placeholder="Enter Description..."><br>
 
 
 
@@ -105,7 +105,7 @@ $email=     $_SESSION["email"] ;
     width: 200px;
     float: left;
     padding-top: 20px;
-">Due time</section>    <input id="Time" name="Dtime" type="time" placeholder="Enter Description..."><br>
+">Due time</section>    <input id="Time"  required="true" name="Dtime" type="time" placeholder="Enter Description..."><br>
          <script>
 var today = new Date();
 var dd = today.getDate();
