@@ -13,6 +13,44 @@ $statement = $db->prepare($q);
  $statement->closeCursor();
  return ;
 }
+
+function getUser($email) {
+   global $db;
+   $q="SELECT `first_n`,`last_n`,`cell_phone_no`, `b_day`,`gender` FROM `adn24`.`to_do_members` where email='$email'";
+          
+$statement = $db->prepare($q);
+ $statement->execute();
+   $category = $statement->fetch();
+//   print_r(count($statement->fetchAll()));
+
+    $statement->closeCursor();    
+   
+        ;
+
+//    echo $f_name.'<br>';
+//    echo '';
+    return $category;
+}
+function updateUser($f,$l,$cp,$bday,$gen,$email)
+{
+
+global $db;
+$q="UPDATE `adn24`.`to_do_members` SET `first_n`='$f',`last_n`='$l',`cell_phone_no`='$cp',`b_day`='$bday',`gender`='$gen' WHERE `email`='$email'";
+$statement = $db->prepare($q);
+ $statement->execute();
+ $statement->closeCursor();
+ return ;
+
+}
+function updatepass($pass,$email,$oldpass)
+{
+global $db;
+$q="UPDATE `adn24`.`to_do_members` SET `pword` = '$pass' WHERE `to_do_members`.`email` = '$email' and `pword`='$oldpass'";
+$statement = $db->prepare($q);
+ $statement->execute();
+ $statement->closeCursor();
+ return ;
+}
 function validate($email,$pword) {
    global $db;
    $q="SELECT `first_n`,`last_n` FROM `adn24`.`to_do_members` where email='$email' and pword='$pword'";
@@ -31,6 +69,8 @@ $statement = $db->prepare($q);
     return $f_name;
 }
 
+
+
 function userExists($email) {
    global $db;
    $q="SELECT `email` FROM `adn24`.`to_do_members` where email='$email' ";
@@ -42,7 +82,7 @@ $statement = $db->prepare($q);
 
     $statement->closeCursor();    
     $f_name = $category['email'];
-//    echo $f_name.'<br>';
+  //  echo $f_name.'<br>';
 //    echo ''.count($statement->fetchAll()).$f_name;
     return $f_name;
 }
