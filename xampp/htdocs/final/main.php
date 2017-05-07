@@ -272,7 +272,7 @@ $li_on_l4=' <span> </section><span style="
     max-width: 250px;
     opacity:0.35;
     cursor:pointer;
-" onclick="$('#editprof').fadeToggle('slow');$('#edit_tasks').fadeToggle('slow');">Welcome <?php echo echo $p['first_n']." ". $p['last_n']; ?></h2>
+" onclick="$('#editprof').fadeToggle('slow');$('#edit_tasks').fadeToggle('slow');">Welcome <?php  echo $p['first_n']." ". $p['last_n']; ?></h2>
        <form method="POST" style="
     background: transparent;
     margin: 0px;
