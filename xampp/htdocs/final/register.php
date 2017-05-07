@@ -7,6 +7,8 @@ and open the template in the editor.
 <?php include 'view/header.php'; ?>
         <?php
         // put your code here
+        
+        
         ?>
 
 
@@ -42,7 +44,7 @@ and open the template in the editor.
     float: left;
 ">Last Name :</section>     <input autocomplete="off" required="true" name="LastName" type="text" placeholder="Enter Last Name..."><br>
 
-   <section style="
+  <section style="
     width: 200px;
     float: left;
 ">Password :</section>     <input autocomplete="off" onkeyup="key_up()" id="pwd" required="true" name="Password" type="password" placeholder="Enter a password"><br>
@@ -85,6 +87,10 @@ else{//
 }
 
 </script>
+         <section style="
+    width: 200px;
+    float: left;
+    ">Mobile Number :</section>     <input minlength="10" required="true" name="CellPhone" type="tel" placeholder="Enter Mobile Number..."><br>
         <section style="
     width: 200px;
     float: left;
@@ -96,7 +102,13 @@ else{//
              <label for="g_f">Female</label>   <input required="true" id="g_f" name="G" value="f" type="radio">
 <!--             <label for="g_o">O</label>   <input required="true" id="g_o" name="G" value="o" type="radio">-->
              <br><br>
-             <input value="Register" type="submit" style="cursor: pointer;min-width: 100px;margin:20px;margin-top: 21px;margin-right: 5px;"/>    
+             
+             
+             
+             
+             
+             
+             <input id="regB" value="Register" type="submit" style="min-width: 100px;margin:20px;margin-top: 21px;margin-right: 5px;"/>    
       
     <?php
     
@@ -104,13 +116,14 @@ else{//
         
         require 'model/people.php';
        // echo 'ready to register : '.$_POST["G"];
-        register($_POST["Email"], $_POST["FirstName"], $_POST["LastName"],$_POST["Password"], $_POST["CellPhone"], $_POST["Birthday"], $_POST["G"]);
-            
-        echo "<script>window.location.href='index.php'</script>";
+       if(userExists($_POST['Email'])!='') echo '<br><span style="font-size:small;padding:7px;word-wrap:break-word;opacity:0.70;">There is an already an account registered with that email.</span>';
+       else{ register($_POST["Email"], $_POST["FirstName"], $_POST["LastName"],$_POST["Password"], $_POST["CellPhone"], $_POST["Birthday"], $_POST["G"]);
+           echo "<script>window.location.href='index.php'</script>";} 
+        
         }
         else{
             
-//                    echo "<br><br>An Error Occured";
+               
 
         }
         
@@ -123,17 +136,6 @@ else{//
 <br>
 <!--  <link href="https://fonts.googleapis.com/css?family=Gudea" rel="stylesheet">-->
 
-<!--<div style="min-height: 90px;border-bottom-right-radius: 15px;border-top-right-radius: 15px;overflow: hidden;float:left;display: inline-block;padding: 5px;background: rgba(38, 220, 203, 0.84);margin: 0;cursor: pointer;transition: all 0.2s ease;display: inline-block;/* clear: both; */margin-top: 30px;">
-        <h2 style="
-    width: 60%;
-    min-width: 250px;
-    max-width: 250px;
-        opacity:0.35;
 
-">Add a task</h2>
-       
-</div>
-
-<div id="tasks" style="min-height: 450px;overflow: hidden;float: left;width: 60%;min-width: 360px;border: 2px solid rgba(128, 128, 128, 0.13);max-width: 550px;margin-left: 6%;margin-top: -70px;"></div>-->
 
 <?php include 'view/footer.php'; ?>
