@@ -5,13 +5,11 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php include 'view/header.php'; 
-
 ?>
 <?php
  
    
        date_default_timezone_set('America/New_York');
-
    $todays_date=date("Y-m-d G:i:s", time());;
  //  print date("Y-m-d H:i:s", time());;
 //G:i:s <br>
@@ -20,6 +18,7 @@ and open the template in the editor.
         <?php
         // put your code here
         require 'model/tasks.php';
+         require 'model/people.php'; 
         session_start();
         $name="User";
         if(isset($_SESSION["name"]))
@@ -27,9 +26,9 @@ and open the template in the editor.
             $name= $_SESSION["name"];
 //            echo $_SESSION["email"];
           $c= getTasksFor($_SESSION["email"]);
-          
+          $p=getUser($_SESSION["email"]);
          
-          
+       //   print_r($p);
           $li_on='';
           $li_d='';
           
@@ -42,7 +41,6 @@ and open the template in the editor.
     overflow:hidden;
         margin-top: 37px;
     ">
-
     
      
      
@@ -85,7 +83,6 @@ and open the template in the editor.
   margin-bottom:0;
 "><span style="padding:3px;text-align:left;margin-left:0">';
                  
-
 $li_do_li4='</span></section><span style="
     font-size: x-large;
     float: right;
@@ -101,7 +98,7 @@ $li_do_li4='</span></section><span style="
     color: rgba(132, 132, 132, 0.91);
     /* position: absolute; */
     margin-top: 8px;
-    " class="del">🗑</span>
+    " class="del">	&#x1f5d1;</span>
          
      <span class="uncheck" onclick="" style="
     font-size: large;
@@ -119,7 +116,7 @@ $li_do_li4='</span></section><span style="
     /* position: absolute; */
     margin-top: 9px;
     margin-right: 20px;
-    ">✖ </span></li>';
+    ">&#x2716;</span></li>';
           
           $li_on_li_1=' <li style="
     border: 1px solid rgba(255, 165, 0, 0.36);
@@ -129,7 +126,6 @@ $li_do_li4='</span></section><span style="
     overflow:hidden;
         margin-top: 37px;
     ">
-
     ';
                 $li_ov_li_1=' <li style="
     border: 1px solid rgba(255, 165, 0, 0.36);
@@ -139,7 +135,6 @@ $li_do_li4='</span></section><span style="
     overflow:hidden;
         margin-top: 37px;
     ">
-
     ';
      
       $li_on_li1='
@@ -173,12 +168,9 @@ $li_do_li4='</span></section><span style="
     margin-bottom: 13px;text-transform: capitalize;
      display:none;
 ">';
-
-
 $li_on_l3='</section><section style="
        margin-bottom: 0;
 "><span style="padding:3px;margin-left:0" >';
-
 $li_on_l4=' <span> </section><span style="
     font-size: x-large;
     float: right;
@@ -194,7 +186,7 @@ $li_on_l4=' <span> </section><span style="
     color: rgba(132, 132, 132, 0.91);
     /* position: absolute; */
     margin-top: 8px;
-    " class="del">🗑</span>
+    " class="del">	&#x1f5d1;</span>
             <span class="modify-button" style="
     font-size: large;
     float: right;
@@ -211,7 +203,7 @@ $li_on_l4=' <span> </section><span style="
     /* position: absolute; */
     margin-top: 8px;
     margin-right: 20px;
-    ">🖊</span>
+    ">	&#x1f58a;</span>
         <span class="check" onclick="" style="
     font-size: x-large;
     float: right;
@@ -228,7 +220,7 @@ $li_on_l4=' <span> </section><span style="
     /* position: absolute; */
     margin-top: 9px;
     margin-right: 20px;
-    ">🗸</span></li>';
+    ">	&#x1f5f8;</span></li>';
        
   
     
@@ -279,7 +271,8 @@ $li_on_l4=' <span> </section><span style="
     min-width: 250px;
     max-width: 250px;
     opacity:0.35;
-">Welcome <?php echo $name; ?></h2>
+    cursor:pointer;
+" onclick="$('#editprof').fadeToggle('slow');$('#edit_tasks').fadeToggle('slow');">Welcome <?php echo $name; ?></h2>
        <form method="POST" style="
     background: transparent;
     margin: 0px;
@@ -307,7 +300,6 @@ $li_on_l4=' <span> </section><span style="
     min-width: 250px;
     max-width: 250px;
         opacity:0.35;
-
 ">Add a task</h2>
        
 </div>
@@ -316,9 +308,101 @@ $li_on_l4=' <span> </section><span style="
     <section>
        
         
+        <div style="min-height:19px;overflow:hidden;display:none;padding:8px;border:1px solid gainsboro" id="editprof">
+        
+        
+<h5 style="opacity:0.4"><i>Click on your name to close this window</i></h5>
+        <h2>Edit your profile</h2>
+<form action="task_func_del_check.php" method="POST" id="editp">
+        
+        <span>First Name</span>   <input type="text" value="" name="first_name" id="first_name"> <br>
+          <span>Last Name</span>   <input type="text" value="" name="last_name" id="last_name"> <br>
+              <span>Mobile No.</span>   <input type="tel" minlength="10" value="" name="mobile_no" id="mobile_no"><br>  
+                <span>Birth Date</span>   <input type="date" value="" name="bday" id="Bday"><br>    
+                
+           <span>Gender</span>       <label for="g_m">Male</label>   <input  id="g_m" name="G" value="m" type="radio">
+             <label for="g_f">Female</label>   <input  id="g_f" name="G" value="f" type="radio">
+
+             <br><br>
+                
+                
+    <center style="margin-left:-74px">  <input type="submit" value="Edit"></center>
+        
+        </form>
+        
+        <?php 
+        
+       
+            
+        ?>
+        
+<?php 
+echo '<script>document.getElementById("first_name").value="'.$p["first_n"].'";</script>';
+echo '<script>document.getElementById("last_name").value="'.$p["last_n"].'";</script>';
+echo '<script>document.getElementById("mobile_no").value="'.$p["cell_phone_no"].'";</script>';
+echo '<script>document.getElementById("Bday").value="'.$p["b_day"].'";</script>';
+if($p["gender"]=='f')echo '<script>document.getElementById("g_f").checked=true;</script>';
+else echo '<script>document.getElementById("g_m").checked=true;</script>';
+?>
+    <h4 style="margin-top:19px"><big>Change Password</big></h4>
+
+<form action="task_func_del_check.php" method="POST">
+         <span>Old Password</span>   <input required="true" id="opwd" autocomplete="off" type="password" value="" name="opword"><br>
+        <span>Password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>   <input required="true" id="pwd" onkeyup="key_up()" autocomplete="off" type="password" value="" name="pword"><br>
+          <span>Confirm &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>   <input  required="true" id="cpwd" onkeyup="key_up()" autocomplete="off" type="password" value="" name="cpword"><br>
+               
+    <center style="margin-left:-74px">  <input type="submit" value="Edit Password"></center>
+        <script>
+function key_up()
+{
+
+console.log('key_up...');
+var p=document.getElementById('pwd');
+var cp=document.getElementById('cpwd');
+
+if(p.value!=""&&cp.value!=""){
+
+if(p.value==cp.value){
+
+//$('#regB').removeClass('dis');
+console.log('c==p');
+p.setCustomValidity('');
+
+
+}
+else{
+
+//$('#regB').addClass('dis');
+   p.setCustomValidity("Passwords Don't Match");
+}
+
+}
+else{//
+//d.disabled=true;
+//$('#regB').addClass('dis');
+}
+
+}
+
+</script>
+        </form>
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        </div>
+        
+        
+           <div style="min-height:19px;overflow:hidden;" id="edit_tasks">
         
        
         <h2>Ongoing Tasks</h2>       
@@ -392,7 +476,6 @@ $li_on_l4=' <span> </section><span style="
     margin-bottom: 21px;
     min-height: 120px;
     ">
-
     
      
      
@@ -438,7 +521,7 @@ $li_on_l4=' <span> </section><span style="
     color: rgba(132, 132, 132, 0.91);
     /* position: absolute; */
     margin-top: 8px;
-    " class="del">🗑</span>
+    " class="del">??</span>
             <span onclick="location.href='modify.php?m=modify'" style="
     font-size: large;
     float: right;
@@ -455,7 +538,7 @@ $li_on_l4=' <span> </section><span style="
     /* position: absolute; */
     margin-top: 8px;
     margin-right: 20px;
-    ">🖊</span>
+    ">??</span>
         <span onclick="" style="
     font-size: x-large;
     float: right;
@@ -472,7 +555,7 @@ $li_on_l4=' <span> </section><span style="
     /* position: absolute; */
     margin-top: 9px;
     margin-right: 20px;
-    ">🗸</span><section style="
+    ">??</span><section style="
     /* font-size: large; */
 ">Due in 3 days</section></li>-->
         
@@ -490,7 +573,6 @@ $li_on_l4=' <span> </section><span style="
     margin-bottom: 21px;
     min-height: 120px;
     ">
-
     
      
      
@@ -536,7 +618,7 @@ $li_on_l4=' <span> </section><span style="
     color: rgba(132, 132, 132, 0.91);
     /* position: absolute; */
     margin-top: 8px;
-    " class="del">🗑</span>
+    " class="del">??</span>
             <span onclick="location.href='modify.php?m=modify'" style="
     font-size: large;
     float: right;
@@ -553,7 +635,7 @@ $li_on_l4=' <span> </section><span style="
     /* position: absolute; */
     margin-top: 8px;
     margin-right: 20px;
-    ">🖊</span>
+    ">??</span>
         <span onclick="" style="
     font-size: x-large;
     float: right;
@@ -570,7 +652,7 @@ $li_on_l4=' <span> </section><span style="
     /* position: absolute; */
     margin-top: 9px;
     margin-right: 20px;
-    ">🗸</span><section style="
+    ">??</span><section style="
     /* font-size: large; */
 ">Due in 3 days</section></li>
         -->
@@ -590,7 +672,6 @@ $li_on_l4=' <span> </section><span style="
     margin-bottom: 21px;
     min-height: 120px;
     ">
-
     
      
      
@@ -636,7 +717,7 @@ $li_on_l4=' <span> </section><span style="
     color: rgba(132, 132, 132, 0.91);
     /* position: absolute; */
     margin-top: 8px;
-    " class="del">🗑</span>
+    " class="del">??</span>
             <span onclick="location.href='modify.php?m=modify'" style="
     font-size: large;
     float: right;
@@ -653,7 +734,7 @@ $li_on_l4=' <span> </section><span style="
     /* position: absolute; */
     margin-top: 8px;
     margin-right: 20px;
-    ">🖊</span>
+    ">??</span>
         <span onclick="" style="
     font-size: x-large;
     float: right;
@@ -670,7 +751,7 @@ $li_on_l4=' <span> </section><span style="
     /* position: absolute; */
     margin-top: 9px;
     margin-right: 20px;
-    ">🗸</span><section style="
+    ">??</span><section style="
     /* font-size: large; */
 ">Due in 3 days</section></li>-->
         
@@ -746,7 +827,6 @@ $li_on_l4=' <span> </section><span style="
     margin-bottom: 21px;
     min-height: 120px;
     ">
-
     
      
      
@@ -793,7 +873,7 @@ $li_on_l4=' <span> </section><span style="
     color: rgba(132, 132, 132, 0.91);
     /* position: absolute; */
     margin-top: 8px;
-    " class="del">🗑</span>
+    " class="del">??</span>
          
      <span onclick="" style="
     font-size: large;
@@ -811,7 +891,7 @@ $li_on_l4=' <span> </section><span style="
     /* position: absolute; */
     margin-top: 9px;
     margin-right: 20px;
-    ">✖ </span>
+    ">? </span>
     
     <section style="
     /* font-size: large; */
@@ -832,7 +912,6 @@ $li_on_l4=' <span> </section><span style="
     min-height: 120px;
     
     ">
-
     
      
      
@@ -880,7 +959,7 @@ $li_on_l4=' <span> </section><span style="
     color: rgba(132, 132, 132, 0.91);
     /* position: absolute; */
     margin-top: 8px;
-    " class="del">🗑</span>
+    " class="del">??</span>
           
      <span onclick="" style="
     font-size: large;
@@ -898,7 +977,7 @@ $li_on_l4=' <span> </section><span style="
     /* position: absolute; */
     margin-top: 9px;
     margin-right: 20px;
-    ">✖ </span>
+    ">? </span>
     
     <section style="
     /* font-size: large; */
@@ -920,7 +999,6 @@ $li_on_l4=' <span> </section><span style="
     margin-bottom: 21px;
     min-height: 120px;
     ">
-
     
      
      
@@ -967,7 +1045,7 @@ $li_on_l4=' <span> </section><span style="
     color: rgba(132, 132, 132, 0.91);
     /* position: absolute; */
     margin-top: 8px;
-    " class="del">🗑</span>
+    " class="del">??</span>
           
        
     
@@ -987,7 +1065,7 @@ $li_on_l4=' <span> </section><span style="
     /* position: absolute; */
     margin-top: 9px;
     margin-right: 20px;
-    ">✖ </span>
+    ">? </span>
     
     <section style="
     /* font-size: large; */
@@ -1013,7 +1091,7 @@ $li_on_l4=' <span> </section><span style="
             
         
         </ul>
-        
+       </div> 
     </section>    
 </div>
 
@@ -1039,8 +1117,6 @@ $li_on_l4=' <span> </section><span style="
         //  more codes
    });
 //    
-
-
       });
       
       $('.yn.yes').click(function(){
@@ -1050,8 +1126,6 @@ $li_on_l4=' <span> </section><span style="
     window.location.reload();
         //  more codes
    });
-
-
       });
       
       
@@ -1070,7 +1144,6 @@ $li_on_l4=' <span> </section><span style="
              window.location.href='modify.php?m=0&tasktitle='+d+'&taskdesc='+desc;
              
              
-
       });
       $('.uncheck').click(function(){
           
@@ -1081,7 +1154,6 @@ $li_on_l4=' <span> </section><span style="
              window.location.href='modify.php?m=5&tasktitle='+d+'&taskdesc='+desc;
              
              
-
       });
       $('.li-task-title').click(function(){
          
