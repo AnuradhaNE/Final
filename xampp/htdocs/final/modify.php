@@ -7,6 +7,7 @@ and open the template in the editor.
 <?php
 require 'model/tasks.php';
 session_start();
+
 $email="";
 
 if(!isset($_SESSION["email"]))
@@ -17,12 +18,15 @@ else{
 
 $email=     $_SESSION["email"] ;
 }
+
+
 ?>
 <?php include 'view/header.php'; ?>
         <?php
         // put your code here
         $msg="Add Task";
         $tomodify=0;
+        $dt='';
         $url ="modify.php";
         if(isset($_REQUEST['m'])){
            
@@ -37,6 +41,7 @@ $email=     $_SESSION["email"] ;
                            
                            $duet=$c['task-time'];
                              $dued=$c['task-date'];
+                             $dt=$dued;
 //                           break;
 //                       }
               }
@@ -67,7 +72,7 @@ $email=     $_SESSION["email"] ;
     
 ">
            <input name="Modify"  type="hidden"  value="<?php echo $tomodify; ?>" />  
-               <input name="tasktitle"  type="hidden"  value="<?php echo $_REQUEST['tasktitle']; ?>" />  
+               <input required name="tasktitle"  type="hidden"  value="<?php echo $_REQUEST['tasktitle']; ?>" />  
             <section style="
         color: white;
     width: 200px;
@@ -93,7 +98,7 @@ $email=     $_SESSION["email"] ;
     width: 200px;
     float: left;
     padding-top: 20px;
-">Due Date</section>    <input required="true" id="Date" name="DD" type="date" placeholder="Enter Description..."><br>
+">Due Date</section>    <input onchange="datechange()" required="true"  id="Date" name="DD" type="date" placeholder="Enter Description..."><br>
 
 
 
@@ -102,7 +107,50 @@ $email=     $_SESSION["email"] ;
     width: 200px;
     float: left;
     padding-top: 20px;
-">Due time</section>    <input  required="true" id="Time" name="Dtime" type="time" placeholder="Enter Description..."><br>
+">Due time</section>    <input id="Time"  required="true" name="Dtime" type="time" placeholder="Enter Description..."><br>
+     
+     <script>
+function datechange()
+{
+var date =document.getElementById('Date');
+
+var ds=date.value;
+
+
+var parts =ds.split('-');
+var t=new Date(parts[0],parts[1]-1,parts[2]);
+var H=t.getHours();
+var M =t.getMinutes();
+
+if(((t.getMonth()+1)-mm)>0||(t.getDate()-dd)>0||(t.getFullYear()-yyyy)>0){document.getElementById("Time").min="";console.log('big');}
+else { document.getElementById("Time").setAttribute("min", now);console.log('small ');}
+
+console.log(date.value+'\n'+t.getDate()+'\n'+((t.getMonth()+1)-mm)+'\n'+t.getFullYear()+' \n'+now);
+
+}
+
+function datechanged(arg)
+{
+console.log('date change init');
+var date =document.getElementById('Date');
+
+var ds=arg;
+
+{
+var parts =ds.split('-');
+var t=new Date(parts[0],parts[1]-1,parts[2]);
+var H=t.getHours();
+var M =t.getMinutes();
+
+if(((t.getMonth()+1)-mm)>0||(t.getDate()-dd)>0||(t.getFullYear()-yyyy)>0){document.getElementById("Time").min="";console.log('big');}
+else { document.getElementById("Time").setAttribute("min", now);console.log('small ');}
+
+console.log(date.value+'\n'+t.getDate()+'\n'+((t.getMonth()+1)-mm)+'\n'+t.getFullYear()+' \n'+now);
+}
+}
+</script>
+     
+     
          <script>
 var today = new Date();
 var dd = today.getDate();
@@ -121,9 +169,13 @@ if(h<10)h="0"+h;
 if(m<0)h="0"+m;
 today = yyyy+'-'+mm+'-'+dd;
 now=h+":"+m;
+console.log(dd+" "+mm+" "+yyyy);
 document.getElementById("Date").setAttribute("min", today);
-
+<?php if($dt!='')  echo 'if(true)';
+else echo 'if(false)'; ?>
+datechanged(<?php echo '"'.$dt.'"';?>);
 </script>
+
 
     <input value="Done" type="submit" style="background:mediumaquamarine;cursor: pointer;min-width: 100px;margin:20px;margin-top: 21px;margin-right: 5px;"/>    
        
