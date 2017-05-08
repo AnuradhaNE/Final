@@ -97,12 +97,16 @@ else{//
 ">Birthday :</section>      <input id="bday" required="true" name="Birthday" type="date" placeholder="Enter your Birthday..."><br>
             
             
-            <script>
+    
 
-document.getElementById('bday').min="1930-01-01";
-document.getElementById('bday').max="1999-12-31";
+
+<script>
+var b=new Date();
+document.getElementById('bday').min=(b.getFullYear()-105)+"-01-01";
+document.getElementById('bday').max=(b.getFullYear()-18)+"-12-31";
 document.getElementById('bday').defaultValue="1993-01-01";
 </script>
+
             
             <section style="
     width: 200px;
