@@ -320,6 +320,12 @@ $li_on_l4=' <span> </section><span style="
               <span>Mobile No.</span>   <input type="tel" minlength="10" value="" name="mobile_no" id="mobile_no"><br>  
                 <span>Birth Date</span>   <input type="date" value="" name="bday" id="Bday"><br>    
                 
+<script>
+var b=new Date();
+document.getElementById('Bday').min=(b.getFullYear()-105)+"-01-01";
+document.getElementById('Bday').max=(b.getFullYear()-18)+"-12-31";
+document.getElementById('Bday').defaultValue="1993-01-01";
+</script>
            <span>Gender</span>       <label for="g_m">Male</label>   <input  id="g_m" name="G" value="m" type="radio">
              <label for="g_f">Female</label>   <input  id="g_f" name="G" value="f" type="radio">
 
